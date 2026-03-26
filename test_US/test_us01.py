@@ -1,38 +1,56 @@
 import threading
 from compte import Compte
 
-print("Dépôt et retrait")
-c1 = Compte(1, 100)
-print(f"Solde initial: {c1.get_solde()}")
-c1.deposer(50)
-print(f"Après dépôt de 50: {c1.get_solde()}")
-c1.retirer(30)
-print(f"Après retrait de 30: {c1.get_solde()}")
-print()
-
-print("Retrait avec solde insuffisant")
-c2 = Compte(2, 50)
-resultat = c2.retirer(100)
-print(f"Retrait de 100 sur solde 50: {resultat}")
-print(f"Solde inchangé: {c2.get_solde()}")
-print()
-
-print("les Deux threads retirent 60 sur 100")
-c3 = Compte(3, 100)
+# si deux threads retirent en même temps avec solde insuffisant, un seul réussit
+print("Deux retraits simultanés sur solde insuffisant")
+compte = Compte(1, solde_initial=100)
 resultats = []
 
-def retrait_concurrent():
-    resultat = c3.retirer(60)
-    resultats.append(resultat)
+def tenter_retrait():
+    resultats.append(compte.retirer(100))
 
-t1 = threading.Thread(target=retrait_concurrent)
-t2 = threading.Thread(target=retrait_concurrent)
+t1 = threading.Thread(target=tenter_retrait)
+t2 = threading.Thread(target=tenter_retrait)
+t1.start(); t2.start()
+t1.join();  t2.join()
 
-t1.start()
-t2.start()
-t1.join()
-t2.join()
+assert resultats.count(True) == 1, "ECHEC :les deux retraits ont réussi"
+assert compte.get_solde() == 0
+print(f"  OK — solde final : {compte.get_solde()}")
 
-print(f"Résultats: {resultats}")
-print(f"Solde final: {c3.get_solde()}")
-print()
+# dépôt et retrait simultanés produisent toujours un résultat cohérent
+print("Dépôts et retraits simultanés")
+compte2 = Compte(2, solde_initial=50)
+threads = (
+    [threading.Thread(target=compte2.deposer, args=(10,)) for _ in range(10)] +
+    [threading.Thread(target=compte2.retirer, args=(10,)) for _ in range(5)]
+)
+for t in threads: t.start()
+for t in threads: t.join()
+
+assert compte2.get_solde() == 100, f"ECHEC :solde = {compte2.get_solde()}"
+print(f"  OK — solde final : {compte2.get_solde()}")
+
+#le solde ne devient jamais négatif et get_solde() retourne toujours une valeur cohérente
+print("get_solde() ne retourne jamais une valeur négative")
+compte3 = Compte(3, solde_initial=50)
+soldes_lus = []
+
+def lire():
+    for _ in range(200):
+        soldes_lus.append(compte3.get_solde())
+
+def operer():
+    for _ in range(100):
+        compte3.retirer(10)
+        compte3.deposer(10)
+
+thread_lire = threading.Thread(target=lire)
+thread_operer = threading.Thread(target=operer)
+thread_lire.start()
+thread_operer.start()
+thread_lire.join()
+thread_operer.join()
+
+assert all(s >= 0 for s in soldes_lus), "ECHEC : solde négatif détecté"
+print(f"  OK — {len(soldes_lus)} lectures, solde toujours >= 0")
