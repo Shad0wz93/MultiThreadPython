@@ -6,7 +6,7 @@ class Compte:
         self._solde = solde_initial
         self._lock = threading.Lock()
 
-    def deposer(self, montant):
+    def deposer(self, montant)-> bool:
         with self._lock:
             self._solde += montant
             return True
