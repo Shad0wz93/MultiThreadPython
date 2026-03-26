@@ -7,15 +7,19 @@ class Compte:
         self._lock = threading.Lock()
 
     def deposer(self, montant):
+        if montant <= 0:
+            raise ValueError("Le montant doit être positif.")
         with self._lock:
-            self._solde += montant  # TODO compléter
+            self._solde += montant
 
     def retirer(self, montant) -> bool:
+        if montant <= 0:
+            raise ValueError("Le montant doit être positif.")
         with self._lock:
             if self._solde >= montant:
                 self._solde -= montant
                 return True
-            return False  # solde insuffisant
+            return False
 
     def get_solde(self) -> float:
         with self._lock:
