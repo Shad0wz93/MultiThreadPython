@@ -1,10 +1,14 @@
 import threading
 from queue import Queue, Full, Empty
 
-class Client:    
-    def __init__(self, nom: str):
+class Client:
+    def __init__(self, nom: str, operation: str = None, montant: float = None, compte=None, compte_destination=None):
         self.nom = nom
-            
+        self.operation = operation
+        self.montant = montant
+        self.compte = compte
+        self.compte_destination = compte_destination
+
     def __str__(self):
         return f"Client: {self.nom}"
 
