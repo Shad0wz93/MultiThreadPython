@@ -7,14 +7,16 @@ class Guichet (threading.Thread):
     Cycle : demarrer() -> run() -> arreter() -> join()
     """
 
-    def __init__(self, id_guichet: int, file_clients):
+    def __init__(self, id_guichet: int, file_clients, banque=None):
         """
         :param id_guichet: numéro du guichet (1, 2, 3,...)
         :param file_clients:
+        :param banque: instance de Banque pour les virements
         """
         super().__init__(name=f"Guichet-{id_guichet}", daemon=False)
         self.id_guichet = id_guichet
         self.file_clients = file_clients
+        self.banque = banque
         self._stop_event = threading.Event()
         self._clients_traites = 0
         self._lock_stats = threading.Lock()
@@ -66,6 +68,13 @@ class Guichet (threading.Thread):
             else:
                 print(f"[{self.name}] se voit refusé un retrait de {montant}€ (solde insuffisant)")
 
+        elif operation == "virement":
+            if self.banque is not None and compte is not None and client.compte_destination is not None:
+                success = self.banque.virement(compte.numero, client.compte_destination.numero, montant)
+                if success:
+                    print(f"[{self.name}] fait un virement de {montant}€ (#{compte.numero} -> #{client.compte_destination.numero})")
+                else:
+                    print(f"[{self.name}] se voit refusé un virement de {montant}€ (solde insuffisant)")
 
         with self._lock_stats:
             self._clients_traites += 1
@@ -92,16 +101,17 @@ class PoolGuichets:
     Créé et gère N guichets sur la même fil d'attente
     """
 
-    def __init__(self, n_guichets: int, file_clients):
+    def __init__(self, n_guichets: int, file_clients, banque=None):
         """
         :param n_guichet: nombre de guichet dans le pool
         :param file_clients: file partagée de clients
+        :param banque: instance de Banque
         """
         if n_guichets < 1:
             raise ValueError("Il faut au moins 1 guichet")
 
         self._guichets = [
-            Guichet(i + 1, file_clients)
+            Guichet(i + 1, file_clients, banque)
             for i in range(n_guichets)
         ]
 
