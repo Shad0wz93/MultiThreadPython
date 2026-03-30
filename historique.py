@@ -8,7 +8,7 @@ class Historique():
 
     def __init__(self):
         self._operations: list[dict] = []
-        self._lock: threading.Lock()
+        self._lock = threading.Lock()
 
     # -----------------
     # ENREGISTREMENT
