@@ -1,10 +1,14 @@
 import threading
 
+from surveillance import Notification
+
+
 class Compte:
-    def __init__(self, numero, solde_initial=0):
+    def __init__(self, numero, notification: Notification, solde_initial=0):
         self.numero = numero
         self._solde = solde_initial
         self._lock = threading.Lock()
+        self._notification = notification
 
     def deposer(self, montant):
         if montant <= 0:
@@ -19,6 +23,7 @@ class Compte:
             if self._solde >= montant:
                 self._solde -= montant
                 return True
+            self._notification.alerter(self.numero)
             return False
 
     def get_solde(self) -> float:
