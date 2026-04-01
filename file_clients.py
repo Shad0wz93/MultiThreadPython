@@ -9,8 +9,9 @@ class Client:
         return f"Client: {self.nom}"
 
 class FileClients:
-    def __init__(self, capacite_max: int = 10):
+    def __init__(self, capacite_max: int = 10, verbose: bool = True):
         self._file = Queue(maxsize=capacite_max)
+        self.verbose = verbose
         self._clients_servis = 0
         self._clients_refuses = 0
         self._lock = threading.Lock()
@@ -18,12 +19,14 @@ class FileClients:
     def rejoindre_file(self, client: Client, block: bool = False) -> bool:
         try:
             self._file.put(client, block=block)
-            print(f"{client.nom} a rejoint la file d'attente (position: {self.taille_file()})")
+            if self.verbose:
+                print(f"{client.nom} a rejoint la file d'attente (position: {self.taille_file()})")
             return True
         except Full:
             with self._lock:
                 self._clients_refuses += 1
-            print(f"{client.nom} refusé - file d'attente pleine ({self._file.maxsize} clients max)")
+            if self.verbose:
+                print(f"{client.nom} refusé - file d'attente pleine ({self._file.maxsize} clients max)")
             return False
     
     def servir_client(self, timeout: float = None) -> Client:

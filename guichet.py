@@ -7,14 +7,18 @@ class Guichet (threading.Thread):
     Cycle : demarrer() -> run() -> arreter() -> join()
     """
 
-    def __init__(self, id_guichet: int, file_clients):
+    def __init__(self, id_guichet: int, file_clients, historique=None, verbose=True):
         """
         :param id_guichet: numéro du guichet (1, 2, 3,...)
         :param file_clients:
+        :param historique: instance d'Historique pour le journal d'opérations
+        :param verbose: si True, affiche les logs de chaque opération
         """
         super().__init__(name=f"Guichet-{id_guichet}", daemon=False)
         self.id_guichet = id_guichet
         self.file_clients = file_clients
+        self.historique = historique
+        self.verbose = verbose
         self._stop_event = threading.Event()
         self._clients_traites = 0
         self._lock_stats = threading.Lock()
@@ -23,7 +27,8 @@ class Guichet (threading.Thread):
     # BOUCLE PRINCIPALE
     # -----------------
     def run(self):
-        print(f"[{self.name}] Guichet ouvert")
+        if self.verbose:
+            print(f"[{self.name}] Guichet ouvert")
 
         while not self._stop_event.is_set():
             # si la file est vide, on reboucle 1s jusqu'à l'attente d'un client
@@ -39,7 +44,8 @@ class Guichet (threading.Thread):
                 # exception levée pendant le traitement (US-03, critère 3)
                 print(f"[{self.name}] — client ignoré : {e}")
 
-        print(f"[{self.name}] Fermé — {self._clients_traites} client(s) traité(s)")
+        if self.verbose:
+            print(f"[{self.name}] Fermé — {self._clients_traites} opération(s) traitée(s)")
 
     # -----------------
     # TRAITEMENT CLIENT
@@ -48,8 +54,8 @@ class Guichet (threading.Thread):
         """
         Traiter la demande du client
         """
-
-        print(f"[{self.name}] Prise en charge : {client.nom}")
+        if self.verbose:
+            print(f"[{self.name}] Prise en charge : {client.nom}")
 
         operation = client.operation
         compte = client.compte
@@ -57,20 +63,49 @@ class Guichet (threading.Thread):
 
         if operation == "depot" and compte is not None:
             compte.deposer(montant)
-            print(f"[{self.name}] fait un dépôt de {montant}€ -> solde : {compte.get_solde()}€")
+            if self.historique:
+                self.historique.enregistrer("depot", compte.numero, montant, True)
+            if self.verbose:
+                print(f"[{self.name}] fait un dépôt de {montant} EUR -> solde : {compte.get_solde()} EUR")
 
         elif operation == "retrait" and compte is not None:
             possible = compte.retirer(montant)
-            if possible:
-                print(f"[{self.name}] fait un retrait de {montant}€ -> solde : {compte.get_solde()}")
-            else:
-                print(f"[{self.name}] se voit refusé un retrait de {montant}€ (solde insuffisant)")
+            if self.historique:
+                self.historique.enregistrer("retrait", compte.numero, montant, possible)
+            if self.verbose:
+                if possible:
+                    print(f"[{self.name}] fait un retrait de {montant} EUR -> solde : {compte.get_solde()} EUR")
+                else:
+                    print(f"[{self.name}] se voit refusé un retrait de {montant} EUR (solde insuffisant)")
 
+        elif operation == "virement" and compte is not None:
+            compte_dest = getattr(client, 'compte_dest', None)
+            if compte_dest is not None:
+                # Acquisition ordonnée des verrous pour éviter les deadlocks
+                premier, second = sorted([compte, compte_dest], key=lambda c: c.numero)
+                with premier._lock:
+                    with second._lock:
+                        if compte._solde >= montant:
+                            compte._solde -= montant
+                            compte_dest._solde += montant
+                            succes = True
+                            if self.verbose:
+                                print(f"[{self.name}] Virement réussi : {montant} EUR de {compte.numero} vers {compte_dest.numero}")
+                        else:
+                            succes = False
+                            if self.verbose:
+                                print(f"[{self.name}] Virement refusé : solde insuffisant sur {compte.numero}")
+                if self.historique:
+                    self.historique.enregistrer("virement", f"{compte.numero}->{compte_dest.numero}", montant, succes)
+            else:
+                if self.verbose:
+                    print(f"[{self.name}] Virement échoué : compte destination manquant")
 
         with self._lock_stats:
             self._clients_traites += 1
 
-        print(f"[{self.name}] {client.nom} -> traitement terminé !")
+        if self.verbose:
+            print(f"[{self.name}] {client.nom} -> traitement terminé !")
 
     def arreter(self):
         """
@@ -92,16 +127,18 @@ class PoolGuichets:
     Créé et gère N guichets sur la même fil d'attente
     """
 
-    def __init__(self, n_guichets: int, file_clients):
+    def __init__(self, n_guichets: int, file_clients, historique=None, verbose=True):
         """
-        :param n_guichet: nombre de guichet dans le pool
+        :param n_guichets: nombre de guichet dans le pool
         :param file_clients: file partagée de clients
+        :param historique: instance d'Historique partagée
+        :param verbose: si True, affiche les logs de chaque opération
         """
         if n_guichets < 1:
             raise ValueError("Il faut au moins 1 guichet")
 
         self._guichets = [
-            Guichet(i + 1, file_clients)
+            Guichet(i + 1, file_clients, historique, verbose)
             for i in range(n_guichets)
         ]
 
@@ -128,4 +165,4 @@ class PoolGuichets:
             g.join()
 
         total = sum(g.nb_clients_traites for g in self._guichets)
-        print(f"[Pool] Tous les guichets sont fermés — {total} client(s) traité(s) au total")
+        print(f"[Pool] Tous les guichets sont fermés — {total} opération(s) traitée(s) au total")

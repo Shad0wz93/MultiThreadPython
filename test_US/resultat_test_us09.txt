@@ -1,0 +1,1347 @@
+
+==================================================
+=== US-09 : SIMULATION DE CHARGE (STRESS TEST) ===
+==================================================
+
+[*] Configuration : 10 comptes
+[*] Solde total initial : 10000.00 EUR
+[Guichet-1] Guichet ouvert
+[Guichet-2] Guichet ouvert
+[Guichet-3] Guichet ouvert
+[Guichet-4] Guichet ouvert
+[Guichet-5] Guichet ouvert
+[Pool] 5 guichet(s) démarrés
+
+  >>> [Dashboard] File: 0 | Total Banque: 10000.00 EUR
+
+[*] Simulation en cours : 60 clients simultanés...
+[*] Les logs sont sauvés dans 'test_US/resultat_test_us09.txt'
+
+C-00 a rejoint la file d'attente (position: 1)
+[Guichet-1] Prise en charge : C-00
+C-01 a rejoint la file d'attente (position: 1)
+[Guichet-2] Prise en charge : C-01
+C-00 a rejoint la file d'attente (position: 1)
+C-02 a rejoint la file d'attente (position: 2)
+[Guichet-3] Prise en charge : C-00
+[Guichet-4] Prise en charge : C-02
+C-03 a rejoint la file d'attente (position: 1)
+[Guichet-5] Prise en charge : C-03
+C-04 a rejoint la file d'attente (position: 1)
+C-05 a rejoint la file d'attente (position: 2)
+C-06 a rejoint la file d'attente (position: 3)
+C-07 a rejoint la file d'attente (position: 4)
+C-08 a rejoint la file d'attente (position: 5)
+C-09 a rejoint la file d'attente (position: 6)
+C-10 a rejoint la file d'attente (position: 7)
+C-11 a rejoint la file d'attente (position: 8)
+C-12 a rejoint la file d'attente (position: 9)
+C-13 a rejoint la file d'attente (position: 10)
+[Guichet-1] Virement réussi : 5 EUR de 5 vers 6
+C-14 a rejoint la file d'attente (position: 11)
+C-01 a rejoint la file d'attente (position: 12)
+C-15 a rejoint la file d'attente (position: 13)
+C-16 a rejoint la file d'attente (position: 14)
+C-17 a rejoint la file d'attente (position: 15)
+C-18 a rejoint la file d'attente (position: 16)
+[Guichet-3] Virement réussi : 2 EUR de 8 vers 3
+C-19 a rejoint la file d'attente (position: 17)
+C-04 a rejoint la file d'attente (position: 18)
+C-20 a rejoint la file d'attente (position: 19)
+C-06 a rejoint la file d'attente (position: 20)
+C-21 a rejoint la file d'attente (position: 21)
+C-08 a rejoint la file d'attente (position: 22)
+C-22 a rejoint la file d'attente (position: 23)
+C-02 a rejoint la file d'attente (position: 24)
+C-23 a rejoint la file d'attente (position: 25)
+C-12 a rejoint la file d'attente (position: 26)
+C-24 a rejoint la file d'attente (position: 27)
+C-03 a rejoint la file d'attente (position: 28)
+C-25 a rejoint la file d'attente (position: 29)
+C-07 a rejoint la file d'attente (position: 30)
+C-26 a rejoint la file d'attente (position: 31)
+C-27 a rejoint la file d'attente (position: 32)
+C-09 a rejoint la file d'attente (position: 33)
+C-28 a rejoint la file d'attente (position: 34)
+C-10 a rejoint la file d'attente (position: 35)
+C-29 a rejoint la file d'attente (position: 36)
+C-11 a rejoint la file d'attente (position: 37)
+C-30 a rejoint la file d'attente (position: 38)
+C-05 a rejoint la file d'attente (position: 39)
+C-13 a rejoint la file d'attente (position: 40)
+C-31 a rejoint la file d'attente (position: 41)
+[Guichet-1] C-00 -> traitement terminé !
+[Guichet-2] Virement réussi : 2 EUR de 9 vers 5
+[Guichet-4] Virement réussi : 10 EUR de 2 vers 6
+C-32 a rejoint la file d'attente (position: 42)
+C-33 a rejoint la file d'attente (position: 43)
+C-34 a rejoint la file d'attente (position: 44)
+C-01 a rejoint la file d'attente (position: 45)
+C-35 a rejoint la file d'attente (position: 46)
+C-15 a rejoint la file d'attente (position: 47)
+C-36 a rejoint la file d'attente (position: 48)
+C-16 a rejoint la file d'attente (position: 49)
+C-37 a rejoint la file d'attente (position: 50)
+C-38 a rejoint la file d'attente (position: 51)
+C-18 a rejoint la file d'attente (position: 52)
+C-39 a rejoint la file d'attente (position: 53)
+C-40 a rejoint la file d'attente (position: 54)
+[Guichet-3] C-00 -> traitement terminé !
+C-41 a rejoint la file d'attente (position: 55)
+C-19 a rejoint la file d'attente (position: 56)
+C-42 a rejoint la file d'attente (position: 57)
+C-44 a rejoint la file d'attente (position: 58)
+C-43 a rejoint la file d'attente (position: 59)
+C-20 a rejoint la file d'attente (position: 60)
+C-45 a rejoint la file d'attente (position: 61)
+C-06 a rejoint la file d'attente (position: 62)
+C-46 a rejoint la file d'attente (position: 63)
+C-21 a rejoint la file d'attente (position: 64)
+C-47 a rejoint la file d'attente (position: 65)
+C-08 a rejoint la file d'attente (position: 66)
+C-48 a rejoint la file d'attente (position: 67)
+C-22 a rejoint la file d'attente (position: 68)
+C-49 a rejoint la file d'attente (position: 69)
+C-02 a rejoint la file d'attente (position: 70)
+C-50 a rejoint la file d'attente (position: 71)
+C-23 a rejoint la file d'attente (position: 72)
+C-51 a rejoint la file d'attente (position: 73)
+C-52 a rejoint la file d'attente (position: 74)
+C-12 a rejoint la file d'attente (position: 75)
+C-53 a rejoint la file d'attente (position: 76)
+C-54 a rejoint la file d'attente (position: 77)
+C-03 a rejoint la file d'attente (position: 78)
+C-55 a rejoint la file d'attente (position: 79)
+C-56 a rejoint la file d'attente (position: 80)
+C-25 a rejoint la file d'attente (position: 81)
+C-57 a rejoint la file d'attente (position: 82)
+C-07 a rejoint la file d'attente (position: 83)
+C-58 a rejoint la file d'attente (position: 84)
+C-26 a rejoint la file d'attente (position: 85)
+C-59 a rejoint la file d'attente (position: 86)
+C-27 a rejoint la file d'attente (position: 87)
+C-09 a rejoint la file d'attente (position: 88)
+C-28 a rejoint la file d'attente (position: 89)
+C-29 a rejoint la file d'attente (position: 90)
+C-11 a rejoint la file d'attente (position: 91)
+C-30 a rejoint la file d'attente (position: 92)
+C-13 a rejoint la file d'attente (position: 93)
+C-31 a rejoint la file d'attente (position: 94)
+[Guichet-1] Prise en charge : C-04
+[Guichet-2] C-01 -> traitement terminé !
+[Guichet-4] C-02 -> traitement terminé !
+[Guichet-5] Virement réussi : 3 EUR de 3 vers 6
+C-33 a rejoint la file d'attente (position: 94)
+C-34 a rejoint la file d'attente (position: 95)
+C-15 a rejoint la file d'attente (position: 96)
+C-36 a rejoint la file d'attente (position: 97)
+[Guichet-3] Prise en charge : C-05
+C-37 a rejoint la file d'attente (position: 99)
+C-38 a rejoint la file d'attente (position: 100)
+C-18 a rejoint la file d'attente (position: 101)
+C-39 a rejoint la file d'attente (position: 102)
+C-40 a rejoint la file d'attente (position: 103)
+C-16 a rejoint la file d'attente (position: 98)
+C-41 a rejoint la file d'attente (position: 103)
+C-19 a rejoint la file d'attente (position: 104)
+C-42 a rejoint la file d'attente (position: 105)
+C-44 a rejoint la file d'attente (position: 106)
+C-43 a rejoint la file d'attente (position: 107)
+C-20 a rejoint la file d'attente (position: 108)
+C-06 a rejoint la file d'attente (position: 109)
+C-46 a rejoint la file d'attente (position: 110)
+C-21 a rejoint la file d'attente (position: 111)
+C-47 a rejoint la file d'attente (position: 112)
+C-08 a rejoint la file d'attente (position: 113)
+C-48 a rejoint la file d'attente (position: 114)
+C-22 a rejoint la file d'attente (position: 115)
+C-49 a rejoint la file d'attente (position: 116)
+C-02 a rejoint la file d'attente (position: 117)
+C-50 a rejoint la file d'attente (position: 118)
+C-23 a rejoint la file d'attente (position: 119)
+C-51 a rejoint la file d'attente (position: 120)
+C-52 a rejoint la file d'attente (position: 121)
+C-53 a rejoint la file d'attente (position: 122)
+C-03 a rejoint la file d'attente (position: 123)
+C-56 a rejoint la file d'attente (position: 124)
+C-25 a rejoint la file d'attente (position: 125)
+C-57 a rejoint la file d'attente (position: 126)
+C-07 a rejoint la file d'attente (position: 127)
+C-58 a rejoint la file d'attente (position: 128)
+C-26 a rejoint la file d'attente (position: 129)
+C-59 a rejoint la file d'attente (position: 130)
+C-27 a rejoint la file d'attente (position: 131)
+C-09 a rejoint la file d'attente (position: 132)
+C-28 a rejoint la file d'attente (position: 133)
+C-29 a rejoint la file d'attente (position: 134)
+C-11 a rejoint la file d'attente (position: 135)
+C-30 a rejoint la file d'attente (position: 136)
+C-13 a rejoint la file d'attente (position: 137)
+C-31 a rejoint la file d'attente (position: 138)
+[Guichet-2] Prise en charge : C-06
+[Guichet-4] Prise en charge : C-07
+[Guichet-5] C-03 -> traitement terminé !
+[Guichet-1] Virement réussi : 7 EUR de 3 vers 1
+C-33 a rejoint la file d'attente (position: 137)
+C-34 a rejoint la file d'attente (position: 138)
+C-15 a rejoint la file d'attente (position: 139)
+C-36 a rejoint la file d'attente (position: 140)
+[Guichet-3] Virement réussi : 7 EUR de 2 vers 10
+C-37 a rejoint la file d'attente (position: 141)
+C-38 a rejoint la file d'attente (position: 142)
+C-18 a rejoint la file d'attente (position: 143)
+C-39 a rejoint la file d'attente (position: 144)
+C-40 a rejoint la file d'attente (position: 145)
+C-16 a rejoint la file d'attente (position: 146)
+C-41 a rejoint la file d'attente (position: 147)
+C-19 a rejoint la file d'attente (position: 148)
+C-42 a rejoint la file d'attente (position: 149)
+C-44 a rejoint la file d'attente (position: 150)
+C-43 a rejoint la file d'attente (position: 151)
+C-20 a rejoint la file d'attente (position: 152)
+C-06 a rejoint la file d'attente (position: 153)
+C-21 a rejoint la file d'attente (position: 154)
+C-47 a rejoint la file d'attente (position: 155)
+C-08 a rejoint la file d'attente (position: 156)
+C-48 a rejoint la file d'attente (position: 157)
+C-22 a rejoint la file d'attente (position: 158)
+C-49 a rejoint la file d'attente (position: 159)
+C-02 a rejoint la file d'attente (position: 160)
+C-50 a rejoint la file d'attente (position: 161)
+C-51 a rejoint la file d'attente (position: 162)
+C-53 a rejoint la file d'attente (position: 163)
+C-56 a rejoint la file d'attente (position: 164)
+C-25 a rejoint la file d'attente (position: 165)
+C-57 a rejoint la file d'attente (position: 166)
+C-07 a rejoint la file d'attente (position: 167)
+C-58 a rejoint la file d'attente (position: 168)
+C-26 a rejoint la file d'attente (position: 169)
+C-59 a rejoint la file d'attente (position: 170)
+C-27 a rejoint la file d'attente (position: 171)
+C-09 a rejoint la file d'attente (position: 172)
+C-28 a rejoint la file d'attente (position: 173)
+C-29 a rejoint la file d'attente (position: 174)
+C-11 a rejoint la file d'attente (position: 175)
+C-30 a rejoint la file d'attente (position: 176)
+C-13 a rejoint la file d'attente (position: 177)
+C-31 a rejoint la file d'attente (position: 178)
+[Guichet-2] Virement réussi : 5 EUR de 4 vers 5
+[Guichet-5] Prise en charge : C-08
+[Guichet-1] C-04 -> traitement terminé !
+[Guichet-4] Virement réussi : 9 EUR de 6 vers 1
+C-34 a rejoint la file d'attente (position: 178)
+C-15 a rejoint la file d'attente (position: 179)
+C-36 a rejoint la file d'attente (position: 180)
+[Guichet-3] C-05 -> traitement terminé !
+C-38 a rejoint la file d'attente (position: 181)
+C-18 a rejoint la file d'attente (position: 182)
+C-39 a rejoint la file d'attente (position: 183)
+C-40 a rejoint la file d'attente (position: 184)
+C-16 a rejoint la file d'attente (position: 185)
+C-41 a rejoint la file d'attente (position: 186)
+C-42 a rejoint la file d'attente (position: 187)
+C-44 a rejoint la file d'attente (position: 188)
+C-43 a rejoint la file d'attente (position: 189)
+C-06 a rejoint la file d'attente (position: 190)
+C-21 a rejoint la file d'attente (position: 191)
+C-47 a rejoint la file d'attente (position: 192)
+C-08 a rejoint la file d'attente (position: 193)
+C-48 a rejoint la file d'attente (position: 194)
+C-22 a rejoint la file d'attente (position: 195)
+C-49 a rejoint la file d'attente (position: 196)
+C-50 a rejoint la file d'attente (position: 197)
+C-51 a rejoint la file d'attente (position: 198)
+C-53 a rejoint la file d'attente (position: 199)
+C-56 a rejoint la file d'attente (position: 200)
+[Guichet-2] C-06 -> traitement terminé !
+[Guichet-1] Prise en charge : C-09
+C-25 a rejoint la file d'attente (position: 200)
+[Guichet-4] C-07 -> traitement terminé !
+[Guichet-5] Virement réussi : 9 EUR de 6 vers 10
+[Guichet-3] Prise en charge : C-10
+C-57 a rejoint la file d'attente (position: 200)
+[Guichet-2] Prise en charge : C-11
+C-07 a rejoint la file d'attente (position: 200)
+[Guichet-1] Virement réussi : 2 EUR de 2 vers 7
+[Guichet-4] Prise en charge : C-12
+C-58 a rejoint la file d'attente (position: 200)
+[Guichet-5] C-08 -> traitement terminé !
+[Guichet-3] Virement réussi : 7 EUR de 9 vers 8
+[Guichet-2] Virement réussi : 8 EUR de 6 vers 3
+[Guichet-1] C-09 -> traitement terminé !
+[Guichet-5] Prise en charge : C-13
+C-26 a rejoint la file d'attente (position: 200)
+[Guichet-2] C-11 -> traitement terminé !
+[Guichet-1] Prise en charge : C-14
+C-27 a rejoint la file d'attente (position: 200)
+[Guichet-3] C-10 -> traitement terminé !
+[Guichet-4] Virement réussi : 8 EUR de 8 vers 10
+[Guichet-2] Prise en charge : C-01
+C-09 a rejoint la file d'attente (position: 200)
+[Guichet-3] Prise en charge : C-15
+C-28 a rejoint la file d'attente (position: 200)
+[Guichet-4] C-12 -> traitement terminé !
+[Guichet-1] Virement réussi : 1 EUR de 10 vers 3
+[Guichet-5] Virement réussi : 6 EUR de 5 vers 8
+[Guichet-5] C-13 -> traitement terminé !
+[Guichet-4] Prise en charge : C-16
+C-11 a rejoint la file d'attente (position: 200)
+[Guichet-2] Virement réussi : 1 EUR de 3 vers 1
+[Guichet-1] C-14 -> traitement terminé !
+[Guichet-5] Prise en charge : C-17
+C-30 a rejoint la file d'attente (position: 200)
+[Guichet-4] Virement réussi : 10 EUR de 6 vers 10
+[Guichet-3] Virement réussi : 1 EUR de 2 vers 7
+[Guichet-2] C-01 -> traitement terminé !
+[Guichet-1] Prise en charge : C-18
+C-13 a rejoint la file d'attente (position: 200)
+[Guichet-5] Virement réussi : 1 EUR de 3 vers 4
+[Guichet-5] C-17 -> traitement terminé !
+[Guichet-3] C-15 -> traitement terminé !
+[Guichet-2] Prise en charge : C-19
+C-31 a rejoint la file d'attente (position: 200)
+[Guichet-4] C-16 -> traitement terminé !
+[Guichet-1] Virement réussi : 2 EUR de 6 vers 4
+[Guichet-5] Prise en charge : C-04
+C-15 a rejoint la file d'attente (position: 200)
+[Guichet-3] Prise en charge : C-20
+C-36 a rejoint la file d'attente (position: 200)
+[Guichet-4] Prise en charge : C-06
+C-38 a rejoint la file d'attente (position: 200)
+[Guichet-1] C-18 -> traitement terminé !
+[Guichet-5] Virement réussi : 1 EUR de 3 vers 10
+[Guichet-4] Virement réussi : 6 EUR de 5 vers 2
+[Guichet-1] Prise en charge : C-21
+C-40 a rejoint la file d'attente (position: 200)
+[Guichet-5] C-04 -> traitement terminé !
+[Guichet-2] Virement réussi : 3 EUR de 3 vers 1
+[Guichet-5] Prise en charge : C-08
+C-16 a rejoint la file d'attente (position: 200)
+[Guichet-4] C-06 -> traitement terminé !
+[Guichet-5] Virement réussi : 1 EUR de 6 vers 8
+[Guichet-4] Prise en charge : C-22
+C-41 a rejoint la file d'attente (position: 200)
+[Guichet-2] C-19 -> traitement terminé !
+[Guichet-1] Virement réussi : 8 EUR de 10 vers 3
+[Guichet-2] Prise en charge : C-02
+[Guichet-5] C-08 -> traitement terminé !
+[Guichet-2] Virement réussi : 6 EUR de 5 vers 8
+C-42 a rejoint la file d'attente (position: 200)
+[Guichet-1] C-21 -> traitement terminé !
+[Guichet-3] Virement réussi : 3 EUR de 10 vers 1
+[Guichet-3] C-20 -> traitement terminé !
+[Guichet-2] C-02 -> traitement terminé !
+[Guichet-4] Virement réussi : 6 EUR de 8 vers 4
+[Guichet-4] C-22 -> traitement terminé !
+[Guichet-5] Prise en charge : C-23
+C-43 a rejoint la file d'attente (position: 200)
+C-06 a rejoint la file d'attente (position: 200)
+C-21 a rejoint la file d'attente (position: 200)
+[Guichet-2] Prise en charge : C-24
+[Guichet-3] Prise en charge : C-12
+[Guichet-4] Prise en charge : C-03
+C-47 a rejoint la file d'attente (position: 200)
+[Guichet-2] Virement réussi : 3 EUR de 7 vers 10
+[Guichet-1] Prise en charge : C-25
+C-08 a rejoint la file d'attente (position: 200)
+[Guichet-5] Virement réussi : 3 EUR de 1 vers 2
+[Guichet-2] C-24 -> traitement terminé !
+[Guichet-4] Virement réussi : 10 EUR de 10 vers 8
+[Guichet-4] C-03 -> traitement terminé !
+[Guichet-3] Virement réussi : 5 EUR de 7 vers 8
+[Guichet-5] C-23 -> traitement terminé !
+[Guichet-1] Virement réussi : 8 EUR de 2 vers 4
+[Guichet-2] Prise en charge : C-07
+C-48 a rejoint la file d'attente (position: 200)
+[Guichet-1] C-25 -> traitement terminé !
+[Guichet-3] C-12 -> traitement terminé !
+[Guichet-5] Prise en charge : C-26
+C-22 a rejoint la file d'attente (position: 200)
+[Guichet-5] Virement réussi : 10 EUR de 2 vers 7
+[Guichet-4] Prise en charge : C-27
+C-49 a rejoint la file d'attente (position: 200)
+C-50 a rejoint la file d'attente (position: 200)
+C-51 a rejoint la file d'attente (position: 200)
+[Guichet-3] Prise en charge : C-28
+[Guichet-1] Prise en charge : C-09
+[Guichet-5] C-26 -> traitement terminé !
+[Guichet-4] Virement réussi : 5 EUR de 7 vers 4
+[Guichet-2] Virement réussi : 7 EUR de 2 vers 8
+[Guichet-1] Virement réussi : 9 EUR de 5 vers 10
+[Guichet-5] Prise en charge : C-10
+C-53 a rejoint la file d'attente (position: 200)
+[Guichet-4] C-27 -> traitement terminé !
+[Guichet-3] Virement réussi : 6 EUR de 3 vers 7
+[Guichet-4] Prise en charge : C-29
+[Guichet-2] C-07 -> traitement terminé !
+C-56 a rejoint la file d'attente (position: 200)
+[Guichet-1] C-09 -> traitement terminé !
+[Guichet-3] C-28 -> traitement terminé !
+[Guichet-5] Virement réussi : 4 EUR de 7 vers 4
+[Guichet-4] Virement réussi : 9 EUR de 1 vers 3
+[Guichet-5] C-10 -> traitement terminé !
+[Guichet-1] Prise en charge : C-11
+C-25 a rejoint la file d'attente (position: 200)
+[Guichet-3] Prise en charge : C-30
+C-57 a rejoint la file d'attente (position: 200)
+[Guichet-2] Prise en charge : C-05
+C-07 a rejoint la file d'attente (position: 200)
+[Guichet-5] Prise en charge : C-13
+C-58 a rejoint la file d'attente (position: 200)
+[Guichet-1] Virement réussi : 8 EUR de 9 vers 6
+[Guichet-4] C-29 -> traitement terminé !
+[Guichet-2] Virement réussi : 4 EUR de 8 vers 7
+[Guichet-5] Virement réussi : 3 EUR de 3 vers 5
+[Guichet-1] C-11 -> traitement terminé !
+C-27 a rejoint la file d'attente (position: 200)
+[Guichet-1] Prise en charge : C-32
+C-26 a rejoint la file d'attente (position: 200)
+[Guichet-4] Prise en charge : C-31
+[Guichet-3] Virement réussi : 6 EUR de 6 vers 1
+[Guichet-5] C-13 -> traitement terminé !
+[Guichet-2] C-05 -> traitement terminé !
+[Guichet-3] C-30 -> traitement terminé !
+[Guichet-4] Virement réussi : 5 EUR de 1 vers 8
+[Guichet-1] Virement réussi : 10 EUR de 6 vers 10
+[Guichet-5] Prise en charge : C-33
+C-09 a rejoint la file d'attente (position: 200)
+[Guichet-4] C-31 -> traitement terminé !
+[Guichet-1] C-32 -> traitement terminé !
+[Guichet-5] Virement réussi : 8 EUR de 3 vers 7
+[Guichet-3] Prise en charge : C-34
+C-11 a rejoint la file d'attente (position: 200)
+[Guichet-2] Prise en charge : C-01
+C-28 a rejoint la file d'attente (position: 200)
+[Guichet-1] Prise en charge : C-35
+C-30 a rejoint la file d'attente (position: 200)
+[Guichet-3] Virement réussi : 10 EUR de 3 vers 1
+[Guichet-5] C-33 -> traitement terminé !
+C-31 a rejoint la file d'attente (position: 200)
+[Guichet-5] Prise en charge : C-36
+[Guichet-4] Prise en charge : C-15
+C-15 a rejoint la file d'attente (position: 200)
+[Guichet-3] C-34 -> traitement terminé !
+[Guichet-5] Virement réussi : 4 EUR de 3 vers 2
+[Guichet-2] Virement réussi : 8 EUR de 7 vers 10
+[Guichet-1] Virement réussi : 2 EUR de 8 vers 1
+C-13 a rejoint la file d'attente (position: 200)
+[Guichet-3] Prise en charge : C-16
+[Guichet-1] C-35 -> traitement terminé !
+[Guichet-3] Virement réussi : 6 EUR de 5 vers 9
+[Guichet-5] C-36 -> traitement terminé !
+[Guichet-2] C-01 -> traitement terminé !
+[Guichet-1] Prise en charge : C-37
+C-36 a rejoint la file d'attente (position: 200)
+[Guichet-3] C-16 -> traitement terminé !
+[Guichet-4] Virement réussi : 10 EUR de 1 vers 9
+[Guichet-5] Prise en charge : C-38
+C-38 a rejoint la file d'attente (position: 200)
+[Guichet-3] Prise en charge : C-18
+C-40 a rejoint la file d'attente (position: 200)
+[Guichet-5] Virement réussi : 8 EUR de 8 vers 3
+[Guichet-2] Prise en charge : C-39
+C-41 a rejoint la file d'attente (position: 200)
+[Guichet-4] C-15 -> traitement terminé !
+[Guichet-5] C-38 -> traitement terminé !
+[Guichet-1] Virement réussi : 2 EUR de 3 vers 6
+[Guichet-3] Virement réussi : 5 EUR de 8 vers 7
+[Guichet-4] Prise en charge : C-40
+C-16 a rejoint la file d'attente (position: 200)
+[Guichet-5] Prise en charge : C-41
+C-42 a rejoint la file d'attente (position: 200)
+[Guichet-1] C-37 -> traitement terminé !
+[Guichet-4] Virement réussi : 9 EUR de 5 vers 1
+[Guichet-3] C-18 -> traitement terminé !
+[Guichet-2] Virement réussi : 5 EUR de 7 vers 8
+[Guichet-1] Prise en charge : C-19
+[Guichet-4] C-40 -> traitement terminé !
+C-43 a rejoint la file d'attente (position: 200)
+C-21 a rejoint la file d'attente (position: 200)
+[Guichet-3] Prise en charge : C-42
+[Guichet-2] C-39 -> traitement terminé !
+[Guichet-5] Virement réussi : 8 EUR de 7 vers 6
+C-47 a rejoint la file d'attente (position: 200)
+[Guichet-4] Prise en charge : C-44
+[Guichet-3] Virement réussi : 10 EUR de 8 vers 9
+[Guichet-5] C-41 -> traitement terminé !
+[Guichet-3] C-42 -> traitement terminé !
+[Guichet-1] Virement réussi : 2 EUR de 4 vers 9
+[Guichet-2] Prise en charge : C-43
+[Guichet-5] Prise en charge : C-20
+C-48 a rejoint la file d'attente (position: 200)
+C-08 a rejoint la file d'attente (position: 200)
+[Guichet-3] Prise en charge : C-45
+C-50 a rejoint la file d'attente (position: 200)
+[Guichet-1] C-19 -> traitement terminé !
+[Guichet-4] Virement réussi : 6 EUR de 9 vers 6
+[Guichet-4] C-44 -> traitement terminé !
+[Guichet-3] Virement réussi : 1 EUR de 5 vers 8
+[Guichet-2] Virement réussi : 4 EUR de 1 vers 3
+[Guichet-1] Prise en charge : C-06
+C-51 a rejoint la file d'attente (position: 200)
+[Guichet-4] Prise en charge : C-46
+C-49 a rejoint la file d'attente (position: 200)
+[Guichet-3] C-45 -> traitement terminé !
+[Guichet-5] Virement réussi : 6 EUR de 10 vers 1
+C-53 a rejoint la file d'attente (position: 200)
+[Guichet-3] Prise en charge : C-21
+[Guichet-5] C-20 -> traitement terminé !
+[Guichet-2] C-43 -> traitement terminé !
+[Guichet-4] Virement réussi : 10 EUR de 9 vers 4
+[Guichet-5] Prise en charge : C-47
+C-56 a rejoint la file d'attente (position: 200)
+[Guichet-2] Prise en charge : C-08
+C-58 a rejoint la file d'attente (position: 200)
+[Guichet-4] C-46 -> traitement terminé !
+[Guichet-3] Virement réussi : 2 EUR de 9 vers 7
+[Guichet-3] C-21 -> traitement terminé !
+[Guichet-1] Virement réussi : 8 EUR de 9 vers 2
+C-57 a rejoint la file d'attente (position: 200)
+[Guichet-4] Prise en charge : C-48
+[Guichet-1] C-06 -> traitement terminé !
+[Guichet-2] Virement réussi : 8 EUR de 9 vers 3
+[Guichet-3] Prise en charge : C-22
+C-07 a rejoint la file d'attente (position: 200)
+[Guichet-4] Virement réussi : 8 EUR de 4 vers 1
+C-25 a rejoint la file d'attente (position: 200)
+[Guichet-1] Prise en charge : C-49
+[Guichet-4] C-48 -> traitement terminé !
+[Guichet-4] Prise en charge : C-02
+[Guichet-5] Virement réussi : 6 EUR de 8 vers 9
+[Guichet-2] C-08 -> traitement terminé !
+C-26 a rejoint la file d'attente (position: 200)
+[Guichet-5] C-47 -> traitement terminé !
+[Guichet-4] Virement réussi : 5 EUR de 1 vers 9
+[Guichet-3] Virement réussi : 9 EUR de 8 vers 6
+[Guichet-2] Prise en charge : C-50
+C-27 a rejoint la file d'attente (position: 200)
+[Guichet-5] Prise en charge : C-23
+C-30 a rejoint la file d'attente (position: 200)
+[Guichet-4] C-02 -> traitement terminé !
+[Guichet-1] Virement réussi : 10 EUR de 7 vers 1
+[Guichet-1] C-49 -> traitement terminé !
+[Guichet-5] Virement réussi : 5 EUR de 10 vers 1
+[Guichet-4] Prise en charge : C-51
+[Guichet-3] C-22 -> traitement terminé !
+C-28 a rejoint la file d'attente (position: 200)
+[Guichet-2] Virement réussi : 8 EUR de 9 vers 4
+[Guichet-1] Prise en charge : C-52
+C-09 a rejoint la file d'attente (position: 200)
+[Guichet-5] C-23 -> traitement terminé !
+[Guichet-3] Prise en charge : C-12
+C-31 a rejoint la file d'attente (position: 200)
+[Guichet-2] C-50 -> traitement terminé !
+[Guichet-1] Virement réussi : 3 EUR de 10 vers 2
+[Guichet-4] Virement réussi : 9 EUR de 5 vers 9
+[Guichet-5] Prise en charge : C-53
+C-13 a rejoint la file d'attente (position: 200)
+[Guichet-2] Prise en charge : C-54
+C-15 a rejoint la file d'attente (position: 200)
+[Guichet-1] C-52 -> traitement terminé !
+[Guichet-3] Virement réussi : 7 EUR de 4 vers 9
+[Guichet-4] C-51 -> traitement terminé !
+[Guichet-1] Prise en charge : C-03
+[Guichet-3] C-12 -> traitement terminé !
+C-36 a rejoint la file d'attente (position: 200)
+C-40 a rejoint la file d'attente (position: 200)
+[Guichet-4] Prise en charge : C-55
+[Guichet-2] Virement réussi : 8 EUR de 7 vers 9
+[Guichet-3] Prise en charge : C-56
+C-42 a rejoint la file d'attente (position: 200)
+[Guichet-2] C-54 -> traitement terminé !
+[Guichet-5] Virement réussi : 9 EUR de 4 vers 7
+[Guichet-2] Prise en charge : C-25
+C-16 a rejoint la file d'attente (position: 200)
+[Guichet-5] C-53 -> traitement terminé !
+[Guichet-1] Virement réussi : 4 EUR de 4 vers 10
+[Guichet-5] Prise en charge : C-57
+C-43 a rejoint la file d'attente (position: 200)
+[Guichet-3] Virement réussi : 1 EUR de 8 vers 4
+[Guichet-1] C-03 -> traitement terminé !
+[Guichet-3] C-56 -> traitement terminé !
+[Guichet-4] Virement réussi : 1 EUR de 4 vers 1
+[Guichet-5] Virement réussi : 9 EUR de 2 vers 8
+[Guichet-1] Prise en charge : C-07
+C-21 a rejoint la file d'attente (position: 200)
+[Guichet-4] C-55 -> traitement terminé !
+[Guichet-2] Virement réussi : 7 EUR de 9 vers 4
+[Guichet-5] C-57 -> traitement terminé !
+[Guichet-1] Virement réussi : 7 EUR de 10 vers 1
+[Guichet-3] Prise en charge : C-58
+C-47 a rejoint la file d'attente (position: 200)
+[Guichet-4] Prise en charge : C-26
+C-48 a rejoint la file d'attente (position: 200)
+[Guichet-2] C-25 -> traitement terminé !
+[Guichet-1] C-07 -> traitement terminé !
+[Guichet-3] Virement réussi : 4 EUR de 2 vers 10
+[Guichet-5] Prise en charge : C-59
+C-08 a rejoint la file d'attente (position: 200)
+[Guichet-2] Prise en charge : C-27
+[Guichet-1] Prise en charge : C-09
+C-53 a rejoint la file d'attente (position: 200)
+C-49 a rejoint la file d'attente (position: 200)
+[Guichet-3] C-58 -> traitement terminé !
+[Guichet-4] Virement réussi : 5 EUR de 9 vers 10
+[Guichet-4] C-26 -> traitement terminé !
+[Guichet-1] Virement réussi : 6 EUR de 10 vers 6
+[Guichet-5] Virement réussi : 2 EUR de 4 vers 7
+[Guichet-3] Prise en charge : C-28
+C-56 a rejoint la file d'attente (position: 200)
+[Guichet-4] Prise en charge : C-29
+C-25 a rejoint la file d'attente (position: 200)
+[Guichet-1] C-09 -> traitement terminé !
+[Guichet-3] Virement réussi : 1 EUR de 8 vers 3
+[Guichet-5] C-59 -> traitement terminé !
+[Guichet-4] Virement réussi : 8 EUR de 7 vers 10
+[Guichet-1] Prise en charge : C-11
+C-07 a rejoint la file d'attente (position: 200)
+[Guichet-3] C-28 -> traitement terminé !
+[Guichet-2] Virement réussi : 9 EUR de 8 vers 4
+[Guichet-2] C-27 -> traitement terminé !
+[Guichet-2] Prise en charge : C-30
+C-30 a rejoint la file d'attente (position: 200)
+[Guichet-5] Prise en charge : C-13
+C-27 a rejoint la file d'attente (position: 200)
+[Guichet-1] Virement réussi : 9 EUR de 4 vers 5
+[Guichet-3] Prise en charge : C-31
+C-09 a rejoint la file d'attente (position: 200)
+[Guichet-4] C-29 -> traitement terminé !
+[Guichet-1] C-11 -> traitement terminé !
+[Guichet-2] Virement réussi : 9 EUR de 5 vers 3
+[Guichet-3] Virement réussi : 5 EUR de 4 vers 9
+[Guichet-4] Prise en charge : C-33
+C-28 a rejoint la file d'attente (position: 200)
+C-31 a rejoint la file d'attente (position: 200)
+[Guichet-1] Prise en charge : C-34
+[Guichet-2] C-30 -> traitement terminé !
+[Guichet-5] Virement réussi : 7 EUR de 7 vers 5
+[Guichet-3] C-31 -> traitement terminé !
+[Guichet-2] Prise en charge : C-15
+C-13 a rejoint la file d'attente (position: 200)
+[Guichet-5] C-13 -> traitement terminé !
+[Guichet-4] Virement réussi : 4 EUR de 4 vers 7
+[Guichet-1] Virement réussi : 7 EUR de 3 vers 5
+[Guichet-2] Virement réussi : 1 EUR de 6 vers 8
+[Guichet-5] Prise en charge : C-36
+C-36 a rejoint la file d'attente (position: 200)
+[Guichet-5] Virement réussi : 9 EUR de 3 vers 1
+[Guichet-1] C-34 -> traitement terminé !
+[Guichet-4] C-33 -> traitement terminé !
+[Guichet-2] C-15 -> traitement terminé !
+[Guichet-3] Prise en charge : C-16
+C-40 a rejoint la file d'attente (position: 200)
+[Guichet-1] Prise en charge : C-37
+C-42 a rejoint la file d'attente (position: 200)
+[Guichet-4] Prise en charge : C-38
+C-16 a rejoint la file d'attente (position: 200)
+C-43 a rejoint la file d'attente (position: 200)
+[Guichet-2] Prise en charge : C-18
+[Guichet-5] C-36 -> traitement terminé !
+[Guichet-3] Virement réussi : 6 EUR de 1 vers 2
+[Guichet-1] Virement réussi : 8 EUR de 9 vers 5
+[Guichet-2] Virement réussi : 7 EUR de 3 vers 6
+[Guichet-5] Prise en charge : C-39
+C-53 a rejoint la file d'attente (position: 200)
+[Guichet-1] C-37 -> traitement terminé !
+[Guichet-5] Virement réussi : 9 EUR de 8 vers 5
+[Guichet-2] C-18 -> traitement terminé !
+[Guichet-5] C-39 -> traitement terminé !
+[Guichet-1] Prise en charge : C-40
+C-08 a rejoint la file d'attente (position: 200)
+[Guichet-3] C-16 -> traitement terminé !
+[Guichet-4] Virement réussi : 5 EUR de 8 vers 2
+[Guichet-2] Prise en charge : C-41
+C-49 a rejoint la file d'attente (position: 200)
+[Guichet-4] C-38 -> traitement terminé !
+[Guichet-3] Prise en charge : C-19
+C-56 a rejoint la file d'attente (position: 200)
+C-27 a rejoint la file d'attente (position: 200)
+[Guichet-5] Prise en charge : C-42
+[Guichet-1] Virement réussi : 10 EUR de 10 vers 5
+[Guichet-4] Prise en charge : C-44
+C-09 a rejoint la file d'attente (position: 200)
+[Guichet-2] Virement réussi : 7 EUR de 2 vers 9
+[Guichet-1] C-40 -> traitement terminé !
+[Guichet-3] Virement réussi : 5 EUR de 10 vers 5
+[Guichet-3] C-19 -> traitement terminé !
+[Guichet-5] Virement réussi : 5 EUR de 5 vers 3
+[Guichet-3] Prise en charge : C-43
+[Guichet-4] Virement réussi : 8 EUR de 6 vers 2
+[Guichet-2] C-41 -> traitement terminé !
+C-31 a rejoint la file d'attente (position: 200)
+[Guichet-5] C-42 -> traitement terminé !
+[Guichet-3] Virement réussi : 2 EUR de 5 vers 1
+[Guichet-1] Prise en charge : C-20
+C-36 a rejoint la file d'attente (position: 200)
+[Guichet-4] C-44 -> traitement terminé !
+[Guichet-2] Prise en charge : C-06
+C-40 a rejoint la file d'attente (position: 200)
+C-42 a rejoint la file d'attente (position: 200)
+[Guichet-5] Prise en charge : C-21
+[Guichet-4] Prise en charge : C-46
+C-16 a rejoint la file d'attente (position: 200)
+[Guichet-3] C-43 -> traitement terminé !
+[Guichet-5] Virement réussi : 9 EUR de 5 vers 3
+[Guichet-1] Virement réussi : 3 EUR de 9 vers 8
+[Guichet-4] Virement réussi : 1 EUR de 6 vers 10
+[Guichet-3] Prise en charge : C-47
+C-53 a rejoint la file d'attente (position: 200)
+[Guichet-5] C-21 -> traitement terminé !
+[Guichet-2] Virement réussi : 1 EUR de 2 vers 3
+[Guichet-1] C-20 -> traitement terminé !
+[Guichet-5] Prise en charge : C-08
+C-49 a rejoint la file d'attente (position: 200)
+[Guichet-2] C-06 -> traitement terminé !
+[Guichet-1] Prise en charge : C-48
+C-56 a rejoint la file d'attente (position: 200)
+[Guichet-5] Virement réussi : 1 EUR de 9 vers 3
+[Guichet-4] C-46 -> traitement terminé !
+[Guichet-3] Virement réussi : 9 EUR de 10 vers 6
+C-27 a rejoint la file d'attente (position: 200)
+[Guichet-4] Prise en charge : C-22
+[Guichet-3] C-47 -> traitement terminé !
+[Guichet-5] C-08 -> traitement terminé !
+[Guichet-2] Prise en charge : C-49
+[Guichet-1] Virement réussi : 2 EUR de 9 vers 4
+C-31 a rejoint la file d'attente (position: 200)
+[Guichet-5] Prise en charge : C-02
+C-40 a rejoint la file d'attente (position: 200)
+[Guichet-2] Virement réussi : 7 EUR de 7 vers 5
+[Guichet-1] C-48 -> traitement terminé !
+[Guichet-4] Virement réussi : 7 EUR de 9 vers 3
+[Guichet-3] Prise en charge : C-50
+C-42 a rejoint la file d'attente (position: 200)
+[Guichet-2] C-49 -> traitement terminé !
+[Guichet-2] Prise en charge : C-23
+C-49 a rejoint la file d'attente (position: 200)
+[Guichet-5] Virement réussi : 8 EUR de 9 vers 2
+[Guichet-4] C-22 -> traitement terminé !
+[Guichet-3] Virement réussi : 10 EUR de 3 vers 4
+[Guichet-1] Prise en charge : C-51
+[Guichet-5] C-02 -> traitement terminé !
+[Guichet-5] Prise en charge : C-52
+[Guichet-5] Virement réussi : 5 EUR de 7 vers 1
+[Guichet-5] C-52 -> traitement terminé !
+[Guichet-4] Prise en charge : C-53
+[Guichet-3] C-50 -> traitement terminé !
+[Guichet-2] Virement réussi : 7 EUR de 4 vers 6
+[Guichet-1] Virement réussi : 3 EUR de 10 vers 7
+[Guichet-1] C-51 -> traitement terminé !
+[Guichet-4] Virement réussi : 1 EUR de 9 vers 2
+[Guichet-4] C-53 -> traitement terminé !
+[Guichet-2] C-23 -> traitement terminé !
+[Guichet-5] Prise en charge : C-03
+[Guichet-1] Prise en charge : C-56
+[Guichet-3] Prise en charge : C-25
+[Guichet-3] Virement réussi : 6 EUR de 8 vers 2
+[Guichet-2] Prise en charge : C-57
+[Guichet-1] Virement réussi : 5 EUR de 9 vers 4
+[Guichet-4] Prise en charge : C-07
+[Guichet-1] C-56 -> traitement terminé !
+[Guichet-4] Virement réussi : 8 EUR de 3 vers 4
+[Guichet-2] Virement réussi : 8 EUR de 9 vers 5
+[Guichet-5] Virement réussi : 4 EUR de 2 vers 8
+[Guichet-3] C-25 -> traitement terminé !
+[Guichet-4] C-07 -> traitement terminé !
+[Guichet-2] C-57 -> traitement terminé !
+[Guichet-1] Prise en charge : C-58
+[Guichet-5] C-03 -> traitement terminé !
+[Guichet-3] Prise en charge : C-26
+[Guichet-4] Prise en charge : C-59
+[Guichet-2] Prise en charge : C-27
+[Guichet-1] Virement réussi : 8 EUR de 5 vers 8
+[Guichet-5] Prise en charge : C-09
+[Guichet-3] Virement réussi : 4 EUR de 4 vers 7
+[Guichet-3] C-26 -> traitement terminé !
+[Guichet-2] Virement réussi : 5 EUR de 9 vers 1
+[Guichet-1] C-58 -> traitement terminé !
+[Guichet-5] Virement réussi : 3 EUR de 3 vers 4
+[Guichet-3] Prise en charge : C-28
+[Guichet-2] C-27 -> traitement terminé !
+[Guichet-4] Virement réussi : 6 EUR de 9 vers 7
+[Guichet-1] Prise en charge : C-29
+[Guichet-5] C-09 -> traitement terminé !
+[Guichet-3] Virement réussi : 1 EUR de 10 vers 8
+[Guichet-2] Prise en charge : C-11
+[Guichet-4] C-59 -> traitement terminé !
+[Guichet-1] Virement réussi : 7 EUR de 2 vers 6
+[Guichet-5] Prise en charge : C-30
+[Guichet-3] C-28 -> traitement terminé !
+[Guichet-2] Virement réussi : 1 EUR de 9 vers 1
+[Guichet-4] Prise en charge : C-13
+[Guichet-1] C-29 -> traitement terminé !
+[Guichet-5] Virement réussi : 2 EUR de 7 vers 6
+[Guichet-3] Prise en charge : C-31
+[Guichet-3] Virement réussi : 5 EUR de 3 vers 4
+[Guichet-3] C-31 -> traitement terminé !
+[Guichet-3] Prise en charge : C-33
+[Guichet-3] Virement réussi : 5 EUR de 10 vers 3
+[Guichet-3] C-33 -> traitement terminé !
+[Guichet-3] Prise en charge : C-34
+[Guichet-1] Prise en charge : C-15
+[Guichet-5] C-30 -> traitement terminé !
+[Guichet-2] C-11 -> traitement terminé !
+[Guichet-4] Virement réussi : 4 EUR de 6 vers 4
+[Guichet-4] C-13 -> traitement terminé !
+[Guichet-1] Virement réussi : 9 EUR de 2 vers 5
+[Guichet-5] Prise en charge : C-36
+[Guichet-3] Virement réussi : 5 EUR de 3 vers 6
+[Guichet-4] Prise en charge : C-37
+[Guichet-1] C-15 -> traitement terminé !
+[Guichet-5] Virement réussi : 2 EUR de 5 vers 9
+[Guichet-2] Prise en charge : C-38
+[Guichet-3] C-34 -> traitement terminé !
+[Guichet-3] Prise en charge : C-18
+[Guichet-1] Prise en charge : C-39
+[Guichet-5] C-36 -> traitement terminé !
+[Guichet-2] Virement réussi : 8 EUR de 5 vers 3
+[Guichet-4] Virement réussi : 6 EUR de 10 vers 9
+[Guichet-4] C-37 -> traitement terminé !
+[Guichet-1] Virement réussi : 9 EUR de 10 vers 9
+[Guichet-5] Prise en charge : C-40
+[Guichet-2] C-38 -> traitement terminé !
+[Guichet-3] Virement réussi : 4 EUR de 3 vers 5
+[Guichet-3] C-18 -> traitement terminé !
+[Guichet-1] C-39 -> traitement terminé !
+[Guichet-5] Virement réussi : 4 EUR de 3 vers 2
+[Guichet-2] Prise en charge : C-16
+[Guichet-4] Prise en charge : C-41
+[Guichet-4] Virement réussi : 10 EUR de 7 vers 9
+[Guichet-1] Prise en charge : C-19
+[Guichet-5] C-40 -> traitement terminé !
+[Guichet-2] Virement réussi : 8 EUR de 2 vers 1
+[Guichet-3] Prise en charge : C-42
+[Guichet-5] Prise en charge : C-44
+[Guichet-2] C-16 -> traitement terminé !
+[Guichet-3] Virement réussi : 10 EUR de 6 vers 1
+[Guichet-4] C-41 -> traitement terminé !
+[Guichet-1] Virement réussi : 3 EUR de 8 vers 9
+[Guichet-2] Prise en charge : C-43
+[Guichet-3] C-42 -> traitement terminé !
+[Guichet-4] Prise en charge : C-20
+[Guichet-1] C-19 -> traitement terminé !
+[Guichet-5] Virement réussi : 1 EUR de 9 vers 10
+[Guichet-3] Prise en charge : C-06
+[Guichet-3] Virement réussi : 5 EUR de 4 vers 1
+[Guichet-1] Prise en charge : C-21
+[Guichet-5] C-44 -> traitement terminé !
+[Guichet-2] Virement réussi : 7 EUR de 7 vers 10
+[Guichet-5] Prise en charge : C-47
+[Guichet-3] C-06 -> traitement terminé !
+[Guichet-2] C-43 -> traitement terminé !
+[Guichet-1] Virement réussi : 9 EUR de 10 vers 2
+[Guichet-5] Virement réussi : 8 EUR de 7 vers 1
+[Guichet-3] Prise en charge : C-08
+[Guichet-2] Prise en charge : C-48
+[Guichet-1] C-21 -> traitement terminé !
+[Guichet-4] Virement réussi : 4 EUR de 3 vers 10
+[Guichet-5] C-47 -> traitement terminé !
+[Guichet-5] Prise en charge : C-22
+[Guichet-1] Prise en charge : C-49
+[Guichet-4] C-20 -> traitement terminé !
+[Guichet-2] Virement réussi : 5 EUR de 5 vers 7
+[Guichet-3] Virement réussi : 5 EUR de 3 vers 8
+[Guichet-5] Virement réussi : 7 EUR de 2 vers 10
+[Guichet-3] C-08 -> traitement terminé !
+[Guichet-4] Prise en charge : C-02
+[Guichet-2] C-48 -> traitement terminé !
+[Guichet-1] Virement réussi : 6 EUR de 7 vers 6
+[Guichet-5] C-22 -> traitement terminé !
+[Guichet-3] Prise en charge : C-50
+[Guichet-2] Prise en charge : C-51
+[Guichet-1] C-49 -> traitement terminé !
+[Guichet-3] Virement réussi : 5 EUR de 7 vers 5
+[Guichet-5] Prise en charge : C-53
+[Guichet-4] Virement réussi : 5 EUR de 10 vers 6
+[Guichet-1] Prise en charge : C-56
+[Guichet-3] C-50 -> traitement terminé !
+[Guichet-5] Virement réussi : 9 EUR de 9 vers 5
+[Guichet-2] Virement réussi : 1 EUR de 4 vers 2
+[Guichet-4] C-02 -> traitement terminé !
+[Guichet-2] C-51 -> traitement terminé !
+[Guichet-3] Prise en charge : C-25
+[Guichet-5] C-53 -> traitement terminé !
+[Guichet-1] Virement réussi : 10 EUR de 10 vers 6
+[Guichet-4] Prise en charge : C-57
+[Guichet-2] Prise en charge : C-07
+[Guichet-3] Virement réussi : 2 EUR de 9 vers 5
+[Guichet-5] Prise en charge : C-58
+[Guichet-1] C-56 -> traitement terminé !
+[Guichet-4] Virement réussi : 1 EUR de 1 vers 2
+[Guichet-3] C-25 -> traitement terminé !
+[Guichet-1] Prise en charge : C-26
+[Guichet-3] Prise en charge : C-59
+[Guichet-3] Virement réussi : 6 EUR de 3 vers 10
+[Guichet-3] C-59 -> traitement terminé !
+[Guichet-3] Prise en charge : C-27
+[Guichet-4] C-57 -> traitement terminé !
+[Guichet-5] Virement réussi : 9 EUR de 2 vers 10
+[Guichet-2] Virement réussi : 3 EUR de 1 vers 5
+[Guichet-4] Prise en charge : C-09
+[Guichet-2] C-07 -> traitement terminé !
+[Guichet-1] Virement réussi : 1 EUR de 9 vers 1
+[Guichet-5] C-58 -> traitement terminé !
+[Guichet-4] Virement réussi : 3 EUR de 6 vers 2
+[Guichet-2] Prise en charge : C-28
+[Guichet-1] C-26 -> traitement terminé !
+[Guichet-5] Prise en charge : C-29
+[Guichet-4] C-09 -> traitement terminé !
+[Guichet-3] Virement réussi : 4 EUR de 2 vers 10
+[Guichet-1] Prise en charge : C-11
+[Guichet-5] Virement réussi : 7 EUR de 8 vers 9
+[Guichet-4] Prise en charge : C-30
+[Guichet-3] C-27 -> traitement terminé !
+[Guichet-2] Virement réussi : 6 EUR de 2 vers 10
+[Guichet-5] C-29 -> traitement terminé !
+[Guichet-4] Virement réussi : 8 EUR de 6 vers 3
+[Guichet-3] Prise en charge : C-13
+[Guichet-2] C-28 -> traitement terminé !
+[Guichet-1] Virement réussi : 1 EUR de 9 vers 2
+[Guichet-5] Prise en charge : C-31
+[Guichet-4] C-30 -> traitement terminé !
+[Guichet-2] Prise en charge : C-34
+[Guichet-1] C-11 -> traitement terminé !
+[Guichet-3] Virement réussi : 7 EUR de 2 vers 3
+[Guichet-4] Prise en charge : C-15
+[Guichet-2] Virement réussi : 6 EUR de 5 vers 8
+[Guichet-1] Prise en charge : C-36
+[Guichet-3] C-13 -> traitement terminé !
+[Guichet-5] Virement réussi : 3 EUR de 1 vers 2
+[Guichet-3] Prise en charge : C-38
+[Guichet-2] C-34 -> traitement terminé !
+[Guichet-1] Virement réussi : 8 EUR de 3 vers 5
+[Guichet-5] C-31 -> traitement terminé !
+[Guichet-1] C-36 -> traitement terminé !
+[Guichet-4] Virement réussi : 8 EUR de 1 vers 3
+[Guichet-5] Prise en charge : C-18
+[Guichet-4] C-15 -> traitement terminé !
+[Guichet-5] Virement réussi : 10 EUR de 4 vers 8
+[Guichet-5] C-18 -> traitement terminé !
+[Guichet-3] Virement réussi : 1 EUR de 2 vers 9
+[Guichet-2] Prise en charge : C-39
+[Guichet-4] Prise en charge : C-40
+[Guichet-1] Prise en charge : C-16
+[Guichet-5] Prise en charge : C-41
+[Guichet-3] C-38 -> traitement terminé !
+[Guichet-2] Virement réussi : 6 EUR de 2 vers 10
+[Guichet-4] Virement réussi : 9 EUR de 6 vers 1
+[Guichet-3] Prise en charge : C-42
+[Guichet-2] C-39 -> traitement terminé !
+[Guichet-1] Virement réussi : 3 EUR de 5 vers 2
+[Guichet-2] Prise en charge : C-44
+[Guichet-5] Virement réussi : 6 EUR de 9 vers 6
+[Guichet-4] C-40 -> traitement terminé !
+[Guichet-4] Prise en charge : C-43
+[Guichet-5] C-41 -> traitement terminé !
+[Guichet-2] Virement réussi : 10 EUR de 8 vers 6
+[Guichet-1] C-16 -> traitement terminé !
+[Guichet-3] Virement réussi : 1 EUR de 2 vers 5
+[Guichet-5] Prise en charge : C-06
+[Guichet-2] C-44 -> traitement terminé !
+[Guichet-1] Prise en charge : C-21
+[Guichet-3] C-42 -> traitement terminé !
+[Guichet-4] Virement réussi : 7 EUR de 7 vers 5
+[Guichet-5] Virement réussi : 4 EUR de 10 vers 1
+[Guichet-4] C-43 -> traitement terminé !
+[Guichet-3] Prise en charge : C-47
+[Guichet-2] Prise en charge : C-08
+[Guichet-5] C-06 -> traitement terminé !
+[Guichet-4] Prise en charge : C-48
+[Guichet-1] Virement réussi : 8 EUR de 8 vers 10
+[Guichet-3] Virement réussi : 9 EUR de 6 vers 3
+[Guichet-5] Prise en charge : C-22
+[Guichet-4] Virement réussi : 10 EUR de 9 vers 2
+[Guichet-1] C-21 -> traitement terminé !
+[Guichet-2] Virement réussi : 3 EUR de 10 vers 8
+[Guichet-3] C-47 -> traitement terminé !
+[Guichet-4] C-48 -> traitement terminé !
+[Guichet-5] Virement réussi : 4 EUR de 9 vers 3
+[Guichet-1] Prise en charge : C-49
+[Guichet-5] C-22 -> traitement terminé !
+[Guichet-3] Prise en charge : C-50
+[Guichet-4] Prise en charge : C-51
+[Guichet-2] C-08 -> traitement terminé !
+[Guichet-1] Virement réussi : 5 EUR de 7 vers 10
+[Guichet-5] Prise en charge : C-53
+[Guichet-3] Virement réussi : 9 EUR de 4 vers 2
+[Guichet-2] Prise en charge : C-56
+[Guichet-1] C-49 -> traitement terminé !
+[Guichet-5] Virement réussi : 6 EUR de 7 vers 1
+[Guichet-3] C-50 -> traitement terminé !
+[Guichet-4] Virement réussi : 6 EUR de 4 vers 9
+[Guichet-4] C-51 -> traitement terminé !
+[Guichet-5] C-53 -> traitement terminé !
+[Guichet-2] Virement réussi : 1 EUR de 1 vers 9
+[Guichet-3] Prise en charge : C-25
+[Guichet-2] C-56 -> traitement terminé !
+[Guichet-4] Prise en charge : C-57
+[Guichet-5] Prise en charge : C-07
+[Guichet-1] Prise en charge : C-58
+[Guichet-3] Virement réussi : 1 EUR de 9 vers 2
+[Guichet-3] C-25 -> traitement terminé !
+[Guichet-4] Virement réussi : 3 EUR de 2 vers 6
+[Guichet-1] Virement réussi : 4 EUR de 8 vers 7
+[Guichet-2] Prise en charge : C-26
+[Guichet-3] Prise en charge : C-27
+[Guichet-4] C-57 -> traitement terminé !
+[Guichet-5] Virement réussi : 1 EUR de 2 vers 6
+[Guichet-1] C-58 -> traitement terminé !
+[Guichet-2] Virement réussi : 9 EUR de 7 vers 10
+[Guichet-1] Prise en charge : C-09
+[Guichet-4] Prise en charge : C-28
+[Guichet-5] C-07 -> traitement terminé !
+[Guichet-2] C-26 -> traitement terminé !
+[Guichet-3] Virement réussi : 7 EUR de 7 vers 9
+[Guichet-4] Virement réussi : 2 EUR de 4 vers 2
+[Guichet-5] Prise en charge : C-11
+[Guichet-2] Prise en charge : C-30
+[Guichet-3] C-27 -> traitement terminé !
+[Guichet-4] C-28 -> traitement terminé !
+[Guichet-1] Virement réussi : 4 EUR de 1 vers 7
+[Guichet-5] Virement réussi : 7 EUR de 5 vers 8
+[Guichet-5] C-11 -> traitement terminé !
+[Guichet-3] Prise en charge : C-13
+[Guichet-4] Prise en charge : C-31
+[Guichet-4] Virement réussi : 3 EUR de 3 vers 4
+[Guichet-5] Prise en charge : C-15
+[Guichet-1] C-09 -> traitement terminé !
+[Guichet-4] C-31 -> traitement terminé !
+[Guichet-2] Virement réussi : 5 EUR de 4 vers 7
+[Guichet-5] Virement réussi : 1 EUR de 1 vers 3
+[Guichet-5] C-15 -> traitement terminé !
+[Guichet-3] Virement réussi : 1 EUR de 2 vers 1
+[Guichet-4] Prise en charge : C-36
+[Guichet-2] C-30 -> traitement terminé !
+[Guichet-2] Prise en charge : C-38
+[Guichet-5] Prise en charge : C-40
+[Guichet-5] Virement réussi : 4 EUR de 4 vers 9
+[Guichet-4] Virement réussi : 6 EUR de 5 vers 7
+[Guichet-1] Prise en charge : C-16
+[Guichet-3] C-13 -> traitement terminé !
+[Guichet-5] C-40 -> traitement terminé !
+[Guichet-5] Prise en charge : C-41
+[Guichet-1] Virement réussi : 10 EUR de 9 vers 4
+[Guichet-3] Prise en charge : C-42
+[Guichet-4] C-36 -> traitement terminé !
+[Guichet-2] Virement réussi : 3 EUR de 8 vers 7
+[Guichet-5] Virement réussi : 8 EUR de 2 vers 10
+[Guichet-5] C-41 -> traitement terminé !
+[Guichet-5] Prise en charge : C-43
+[Guichet-4] Prise en charge : C-06
+[Guichet-1] C-16 -> traitement terminé !
+[Guichet-1] Prise en charge : C-21
+[Guichet-2] C-38 -> traitement terminé !
+[Guichet-4] Virement réussi : 1 EUR de 8 vers 5
+[Guichet-3] Virement réussi : 4 EUR de 6 vers 1
+[Guichet-1] Virement réussi : 7 EUR de 3 vers 7
+[Guichet-2] Prise en charge : C-47
+[Guichet-3] C-42 -> traitement terminé !
+[Guichet-1] C-21 -> traitement terminé !
+[Guichet-4] C-06 -> traitement terminé !
+[Guichet-5] Virement réussi : 2 EUR de 2 vers 5
+[Guichet-2] Virement réussi : 4 EUR de 7 vers 4
+[Guichet-1] Prise en charge : C-48
+[Guichet-4] Prise en charge : C-08
+[Guichet-3] Prise en charge : C-22
+[Guichet-5] C-43 -> traitement terminé !
+[Guichet-5] Prise en charge : C-49
+[Guichet-1] Virement réussi : 8 EUR de 5 vers 9
+[Guichet-2] C-47 -> traitement terminé !
+[Guichet-4] Virement réussi : 10 EUR de 3 vers 7
+[Guichet-5] Virement réussi : 7 EUR de 8 vers 1
+[Guichet-1] C-48 -> traitement terminé !
+[Guichet-3] Virement réussi : 3 EUR de 10 vers 5
+[Guichet-2] Prise en charge : C-50
+[Guichet-4] C-08 -> traitement terminé !
+[Guichet-2] Virement réussi : 6 EUR de 6 vers 4
+[Guichet-1] Prise en charge : C-51
+[Guichet-3] C-22 -> traitement terminé !
+[Guichet-5] C-49 -> traitement terminé !
+[Guichet-4] Prise en charge : C-53
+[Guichet-2] C-50 -> traitement terminé !
+[Guichet-1] Virement réussi : 7 EUR de 8 vers 6
+[Guichet-3] Prise en charge : C-56
+[Guichet-5] Prise en charge : C-25
+[Guichet-2] Prise en charge : C-57
+[Guichet-1] C-51 -> traitement terminé !
+[Guichet-3] Virement réussi : 7 EUR de 3 vers 4
+[Guichet-4] Virement réussi : 3 EUR de 8 vers 5
+[Guichet-5] Virement réussi : 9 EUR de 1 vers 6
+[Guichet-2] Virement réussi : 5 EUR de 10 vers 7
+[Guichet-1] Prise en charge : C-07
+[Guichet-3] C-56 -> traitement terminé !
+[Guichet-4] C-53 -> traitement terminé !
+[Guichet-5] C-25 -> traitement terminé !
+[Guichet-2] C-57 -> traitement terminé !
+[Guichet-1] Virement réussi : 7 EUR de 8 vers 2
+[Guichet-3] Prise en charge : C-58
+[Guichet-4] Prise en charge : C-27
+[Guichet-5] Prise en charge : C-26
+[Guichet-1] C-07 -> traitement terminé !
+[Guichet-5] Virement réussi : 10 EUR de 9 vers 2
+[Guichet-3] Virement réussi : 4 EUR de 10 vers 5
+[Guichet-2] Prise en charge : C-09
+[Guichet-1] Prise en charge : C-28
+[Guichet-5] C-26 -> traitement terminé !
+[Guichet-3] C-58 -> traitement terminé !
+[Guichet-4] Virement réussi : 3 EUR de 9 vers 5
+[Guichet-3] Prise en charge : C-11
+[Guichet-5] Prise en charge : C-30
+[Guichet-4] C-27 -> traitement terminé !
+[Guichet-2] Virement réussi : 2 EUR de 6 vers 9
+[Guichet-4] Prise en charge : C-31
+[Guichet-2] C-09 -> traitement terminé !
+[Guichet-1] Virement réussi : 8 EUR de 9 vers 4
+[Guichet-4] Virement réussi : 9 EUR de 3 vers 8
+[Guichet-2] Prise en charge : C-15
+[Guichet-4] C-31 -> traitement terminé !
+[Guichet-1] C-28 -> traitement terminé !
+[Guichet-3] Virement réussi : 7 EUR de 4 vers 5
+[Guichet-2] Virement réussi : 9 EUR de 8 vers 10
+[Guichet-3] C-11 -> traitement terminé !
+[Guichet-5] Virement réussi : 4 EUR de 7 vers 4
+[Guichet-4] Prise en charge : C-36
+[Guichet-1] Prise en charge : C-13
+[Guichet-4] Virement réussi : 4 EUR de 1 vers 5
+[Guichet-3] Prise en charge : C-38
+[Guichet-5] C-30 -> traitement terminé !
+[Guichet-2] C-15 -> traitement terminé !
+[Guichet-1] Virement réussi : 5 EUR de 9 vers 2
+[Guichet-4] C-36 -> traitement terminé !
+[Guichet-3] Virement réussi : 6 EUR de 3 vers 4
+[Guichet-5] Prise en charge : C-40
+[Guichet-2] Prise en charge : C-41
+[Guichet-1] C-13 -> traitement terminé !
+[Guichet-1] Prise en charge : C-16
+[Guichet-3] C-38 -> traitement terminé !
+[Guichet-5] Virement réussi : 4 EUR de 9 vers 5
+[Guichet-4] Prise en charge : C-42
+[Guichet-1] Virement réussi : 8 EUR de 7 vers 8
+[Guichet-3] Prise en charge : C-43
+[Guichet-5] C-40 -> traitement terminé !
+[Guichet-2] Virement réussi : 2 EUR de 9 vers 10
+[Guichet-1] C-16 -> traitement terminé !
+[Guichet-4] Virement réussi : 4 EUR de 2 vers 8
+[Guichet-3] Virement réussi : 6 EUR de 1 vers 6
+[Guichet-4] C-42 -> traitement terminé !
+[Guichet-3] C-43 -> traitement terminé !
+[Guichet-1] Prise en charge : C-21
+[Guichet-5] Prise en charge : C-47
+[Guichet-2] C-41 -> traitement terminé !
+[Guichet-4] Prise en charge : C-48
+[Guichet-3] Prise en charge : C-08
+[Guichet-1] Virement réussi : 4 EUR de 6 vers 2
+[Guichet-2] Prise en charge : C-50
+[Guichet-1] C-21 -> traitement terminé !
+[Guichet-5] Virement réussi : 5 EUR de 6 vers 3
+[Guichet-2] Virement réussi : 4 EUR de 8 vers 9
+[Guichet-5] C-47 -> traitement terminé !
+[Guichet-4] Virement réussi : 9 EUR de 4 vers 6
+[Guichet-1] Prise en charge : C-51
+[Guichet-4] C-48 -> traitement terminé !
+[Guichet-3] Virement réussi : 5 EUR de 6 vers 1
+[Guichet-5] Prise en charge : C-49
+[Guichet-2] C-50 -> traitement terminé !
+[Guichet-1] Virement réussi : 7 EUR de 8 vers 10
+[Guichet-4] Prise en charge : C-53
+[Guichet-3] C-08 -> traitement terminé !
+[Guichet-2] Prise en charge : C-56
+[Guichet-1] C-51 -> traitement terminé !
+[Guichet-5] Virement réussi : 5 EUR de 8 vers 4
+[Guichet-1] Prise en charge : C-58
+[Guichet-3] Prise en charge : C-57
+[Guichet-2] Virement réussi : 7 EUR de 1 vers 10
+[Guichet-4] Virement réussi : 2 EUR de 5 vers 9
+[Guichet-5] C-49 -> traitement terminé !
+[Guichet-2] C-56 -> traitement terminé !
+[Guichet-4] C-53 -> traitement terminé !
+[Guichet-1] Virement réussi : 10 EUR de 9 vers 4
+[Guichet-5] Prise en charge : C-07
+[Guichet-2] Prise en charge : C-25
+[Guichet-4] Prise en charge : C-26
+[Guichet-1] C-58 -> traitement terminé !
+[Guichet-3] Virement réussi : 5 EUR de 4 vers 10
+[Guichet-5] Virement réussi : 8 EUR de 2 vers 3
+[Guichet-3] C-57 -> traitement terminé !
+[Guichet-1] Prise en charge : C-27
+[Guichet-5] C-07 -> traitement terminé !
+[Guichet-4] Virement réussi : 7 EUR de 5 vers 3
+[Guichet-3] Prise en charge : C-30
+[Guichet-4] C-26 -> traitement terminé !
+[Guichet-2] Virement réussi : 4 EUR de 2 vers 6
+[Guichet-5] Prise en charge : C-28
+[Guichet-3] Virement réussi : 2 EUR de 9 vers 7
+[Guichet-4] Prise en charge : C-09
+[Guichet-2] C-25 -> traitement terminé !
+[Guichet-1] Virement réussi : 3 EUR de 5 vers 6
+[Guichet-5] Virement réussi : 5 EUR de 4 vers 3
+[Guichet-1] C-27 -> traitement terminé !
+[Guichet-2] Prise en charge : C-31
+[Guichet-3] C-30 -> traitement terminé !
+[Guichet-4] Virement réussi : 7 EUR de 9 vers 8
+[Guichet-5] C-28 -> traitement terminé !
+[Guichet-1] Prise en charge : C-13
+[Guichet-2] Virement réussi : 7 EUR de 1 vers 10
+[Guichet-3] Prise en charge : C-15
+[Guichet-4] C-09 -> traitement terminé !
+[Guichet-5] Prise en charge : C-36
+[Guichet-1] Virement réussi : 5 EUR de 5 vers 2
+[Guichet-2] C-31 -> traitement terminé !
+[Guichet-3] Virement réussi : 7 EUR de 6 vers 3
+[Guichet-4] Prise en charge : C-40
+[Guichet-1] C-13 -> traitement terminé !
+[Guichet-5] Virement réussi : 6 EUR de 7 vers 2
+[Guichet-2] Prise en charge : C-42
+[Guichet-3] C-15 -> traitement terminé !
+[Guichet-1] Prise en charge : C-16
+[Guichet-5] C-36 -> traitement terminé !
+[Guichet-4] Virement réussi : 2 EUR de 7 vers 2
+[Guichet-5] Prise en charge : C-43
+[Guichet-3] Prise en charge : C-21
+[Guichet-2] Virement réussi : 4 EUR de 8 vers 9
+[Guichet-4] C-40 -> traitement terminé !
+[Guichet-1] Virement réussi : 8 EUR de 7 vers 5
+[Guichet-1] C-16 -> traitement terminé !
+[Guichet-5] Virement réussi : 7 EUR de 2 vers 7
+[Guichet-2] C-42 -> traitement terminé !
+[Guichet-5] C-43 -> traitement terminé !
+[Guichet-5] Prise en charge : C-47
+[Guichet-1] Prise en charge : C-48
+[Guichet-4] Prise en charge : C-08
+[Guichet-2] Prise en charge : C-53
+[Guichet-3] Virement réussi : 9 EUR de 5 vers 2
+[Guichet-5] Virement réussi : 9 EUR de 8 vers 10
+[Guichet-3] C-21 -> traitement terminé !
+[Guichet-4] Virement réussi : 9 EUR de 7 vers 5
+[Guichet-5] C-47 -> traitement terminé !
+[Guichet-1] Virement réussi : 5 EUR de 1 vers 8
+[Guichet-3] Prise en charge : C-49
+[Guichet-5] Prise en charge : C-56
+[Guichet-1] C-48 -> traitement terminé !
+[Guichet-2] Virement réussi : 4 EUR de 3 vers 1
+[Guichet-4] C-08 -> traitement terminé !
+[Guichet-2] C-53 -> traitement terminé !
+[Guichet-3] Virement réussi : 8 EUR de 7 vers 6
+[Guichet-1] Prise en charge : C-25
+[Guichet-3] C-49 -> traitement terminé !
+[Guichet-4] Prise en charge : C-07
+[Guichet-2] Prise en charge : C-30
+[Guichet-5] Virement réussi : 2 EUR de 8 vers 9
+[Guichet-1] Virement réussi : 5 EUR de 2 vers 10
+[Guichet-3] Prise en charge : C-27
+[Guichet-4] Virement réussi : 10 EUR de 3 vers 6
+[Guichet-5] C-56 -> traitement terminé !
+[Guichet-1] C-25 -> traitement terminé !
+[Guichet-4] C-07 -> traitement terminé !
+[Guichet-2] Virement réussi : 9 EUR de 4 vers 3
+[Guichet-5] Prise en charge : C-09
+[Guichet-2] C-30 -> traitement terminé !
+[Guichet-3] Virement réussi : 2 EUR de 8 vers 3
+[Guichet-4] Prise en charge : C-28
+[Guichet-3] C-27 -> traitement terminé !
+[Guichet-5] Virement réussi : 2 EUR de 2 vers 4
+[Guichet-2] Prise en charge : C-31
+[Guichet-1] Prise en charge : C-13
+[Guichet-3] Prise en charge : C-36
+[Guichet-5] C-09 -> traitement terminé !
+[Guichet-4] Virement réussi : 10 EUR de 9 vers 4
+[Guichet-2] Virement réussi : 8 EUR de 2 vers 5
+[Guichet-4] C-28 -> traitement terminé !
+[Guichet-4] Prise en charge : C-40
+[Guichet-5] Prise en charge : C-42
+[Guichet-1] Virement réussi : 5 EUR de 1 vers 3
+[Guichet-2] C-31 -> traitement terminé !
+[Guichet-3] Virement réussi : 4 EUR de 4 vers 2
+[Guichet-1] C-13 -> traitement terminé !
+[Guichet-4] Virement réussi : 9 EUR de 7 vers 3
+[Guichet-2] Prise en charge : C-16
+[Guichet-5] Virement réussi : 1 EUR de 9 vers 4
+[Guichet-3] C-36 -> traitement terminé !
+[Guichet-1] Prise en charge : C-43
+[Guichet-5] C-42 -> traitement terminé !
+[Guichet-3] Prise en charge : C-53
+[Guichet-5] Prise en charge : C-08
+[Guichet-1] Virement réussi : 6 EUR de 5 vers 9
+[Guichet-4] C-40 -> traitement terminé !
+[Guichet-1] C-43 -> traitement terminé !
+[Guichet-2] Virement réussi : 2 EUR de 7 vers 9
+[Guichet-4] Prise en charge : C-49
+[Guichet-1] Prise en charge : C-56
+[Guichet-2] C-16 -> traitement terminé !
+[Guichet-3] Virement réussi : 3 EUR de 1 vers 7
+[Guichet-2] Prise en charge : C-27
+[Guichet-3] C-53 -> traitement terminé !
+[Guichet-4] Virement réussi : 3 EUR de 4 vers 7
+[Guichet-5] Virement réussi : 3 EUR de 1 vers 10
+[Guichet-2] Virement réussi : 6 EUR de 3 vers 6
+[Guichet-4] C-49 -> traitement terminé !
+[Guichet-1] Virement réussi : 4 EUR de 5 vers 4
+[Guichet-2] C-27 -> traitement terminé !
+[Guichet-5] C-08 -> traitement terminé !
+[Guichet-3] Prise en charge : C-09
+[Guichet-4] Prise en charge : C-31
+[Guichet-1] C-56 -> traitement terminé !
+[Guichet-2] Prise en charge : C-36
+[Guichet-5] Prise en charge : C-40
+[Guichet-3] Virement réussi : 4 EUR de 5 vers 7
+[Guichet-4] Virement réussi : 3 EUR de 8 vers 2
+[Guichet-1] Prise en charge : C-42
+[Guichet-5] Virement réussi : 1 EUR de 10 vers 4
+[Guichet-3] C-09 -> traitement terminé !
+[Guichet-3] Prise en charge : C-16
+[Guichet-5] C-40 -> traitement terminé !
+[Guichet-4] C-31 -> traitement terminé !
+[Guichet-1] Virement réussi : 4 EUR de 8 vers 9
+[Guichet-3] Virement réussi : 4 EUR de 6 vers 10
+[Guichet-2] Virement réussi : 7 EUR de 3 vers 2
+[Guichet-4] Prise en charge : C-53
+[Guichet-1] C-42 -> traitement terminé !
+[Guichet-5] Prise en charge : C-49
+[Guichet-1] Prise en charge : C-56
+[Guichet-2] C-36 -> traitement terminé !
+[Guichet-3] C-16 -> traitement terminé !
+[Guichet-4] Virement réussi : 5 EUR de 10 vers 4
+[Guichet-5] Virement réussi : 7 EUR de 5 vers 2
+[Guichet-5] C-49 -> traitement terminé !
+[Guichet-3] Prise en charge : C-27
+[Guichet-4] C-53 -> traitement terminé !
+[Guichet-1] Virement réussi : 6 EUR de 9 vers 10
+[Guichet-2] Prise en charge : C-31
+[Guichet-4] Prise en charge : C-40
+[Guichet-3] Virement réussi : 10 EUR de 4 vers 3
+[Guichet-4] Virement réussi : 10 EUR de 2 vers 7
+[Guichet-1] C-56 -> traitement terminé !
+[Guichet-5] Prise en charge : C-42
+[Guichet-3] C-27 -> traitement terminé !
+[Guichet-2] Virement réussi : 2 EUR de 3 vers 8
+[Guichet-4] C-40 -> traitement terminé !
+[Guichet-1] Prise en charge : C-49
+[Guichet-5] Virement réussi : 9 EUR de 7 vers 4
+[Guichet-2] C-31 -> traitement terminé !
+[Guichet-1] Virement réussi : 7 EUR de 6 vers 5
+[Guichet-5] C-42 -> traitement terminé !
+[Guichet-1] C-49 -> traitement terminé !
+
+[Pool] Arrêt demandé — en attente de la fin des guichets…
+[Guichet-5] Fermé — 70 opération(s) traitée(s)
+[Guichet-2] Fermé — 60 opération(s) traitée(s)
+[Guichet-4] Fermé — 65 opération(s) traitée(s)
+[Guichet-1] Fermé — 65 opération(s) traitée(s)
+[Guichet-3] Fermé — 66 opération(s) traitée(s)
+[Pool] Tous les guichets sont fermés — 326 opération(s) traitée(s) au total
+
+==================================================
+=============== BILAN FINAL US-09 ================
+==================================================
+  Opérations totales : 326
+  Temps d'exécution  : 2.27 secondes
+  Débit moyen        : 143.76 ops/sec
+--------------------------------------------------
+  Solde Initial      : 10,000.00 EUR
+  Solde Final        : 10,000.00 EUR
+  Écart (Invariant)  : 0.00 EUR
+
+✓ L'invariant de solde est respecté.
+✓ US-09 validée avec succès ✓
+==================================================
+
