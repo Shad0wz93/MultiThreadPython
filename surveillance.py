@@ -51,7 +51,7 @@ class Notification:
                 # traite toutes les alertes en attente
                 while self._decouvert:
                     numero = self._decouvert.pop(0)
-                    print(f"Compte n°{numero} est en découvert")
+                    print(f"[ALERTE] Compte n°{numero} : solde insuffisant (opération refusée)")
 
     def alerter(self, numero_compte: int):
         """Appelé par la Banque après un retrait ou un virement"""
