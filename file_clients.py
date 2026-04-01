@@ -1,19 +1,23 @@
 import threading
 from queue import Queue, Full, Empty
 
-class Client:    
-    def __init__(self, nom: str):
+class Client:
+    def __init__(self, nom: str, operation: str = None, montant: float = None, compte=None, compte_destination=None):
         self.nom = nom
-            
+        self.operation = operation
+        self.montant = montant
+        self.compte = compte
+        self.compte_destination = compte_destination
+
     def __str__(self):
         return f"Client: {self.nom}"
 
 class FileClients:
     def __init__(self, capacite_max: int = 10, verbose: bool = True):
         self._file = Queue(maxsize=capacite_max)
-        self.verbose = verbose
         self._clients_servis = 0
         self._clients_refuses = 0
+        self.verbose = verbose
         self._lock = threading.Lock()
     
     def rejoindre_file(self, client: Client, block: bool = False) -> bool:

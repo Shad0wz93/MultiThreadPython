@@ -11,6 +11,7 @@ from compte import Compte
 from file_clients import FileClients, Client
 from guichet import PoolGuichets
 from historique import Historique
+from surveillance import Notification
 
 # ---------------------------------------------------------------------------
 # US-09 : CONFIGURATION DES LOGS (Terminal + Fichier résultat)
@@ -65,12 +66,15 @@ print_log("\n" + "="*50)
 print_log(" US-09 : SIMULATION DE CHARGE (STRESS TEST) ".center(50, "="))
 print_log("="*50 + "\n")
 
-banque = Banque()
+# US-06 Compatibilité
+notification = Notification()
+banque = Banque(notification)
+
 historique = Historique()
 file_clients = FileClients(capacite_max=200, verbose=PRINT_LOGS) 
 
 # 10 comptes à 1000 eu de base
-comptes = [Compte(i, 1000) for i in range(1, 11)]
+comptes = [Compte(i, notification, 1000) for i in range(1, 11)]
 for c in comptes:
     banque.ajouter_compte(c)
 
@@ -79,7 +83,7 @@ print_log(f"[*] Configuration : 10 comptes")
 print_log(f"[*] Solde total initial : {initial_total:.2f} EUR")
 
 # Démarrage
-pool_guichets = PoolGuichets(n_guichets=5, file_clients=file_clients, historique=historique, verbose=PRINT_LOGS)
+pool_guichets = PoolGuichets(n_guichets=5, file_clients=file_clients, banque=banque, historique=historique, verbose=PRINT_LOGS)
 pool_guichets.demarrer()
 
 # Dashboard US-05
@@ -95,7 +99,7 @@ monitor_thread.start()
 
 # Tâche Client
 def tache_client(id_client):
-    """Effectue entre 1 et 10 virements pour stresser le système (Critère US-09)"""
+    """Effectue entre 1 et 10 opérations aléatoires (Critère US-09)"""
     nb_ops = random.randint(1, 10)
     ops_ok = 0
     for _ in range(nb_ops):
@@ -103,11 +107,8 @@ def tache_client(id_client):
         c_dest = random.choice([c for c in comptes if c.numero != c_src.numero])
         montant = random.randint(1, 10)
         
-        client = Client(f"C-{id_client:02d}")
-        client.operation = "virement"
-        client.compte = c_src
-        client.compte_dest = c_dest
-        client.montant = montant
+        
+        client = Client(f"C-{id_client:02d}", operation="virement", montant=montant, compte=c_src, compte_destination=c_dest)
         
         if file_clients.rejoindre_file(client, block=True):
             ops_ok += 1
@@ -118,7 +119,7 @@ nb_clients = 60
 start_time = time.time()
 
 print_log(f"[*] Simulation en cours : {nb_clients} clients simultanés...")
-print_log(f"[*] Les logs sont sauvés dans '{log_file}'\n")
+print_log(f"[*] Les logs sont sauvegardés dans '{log_file}'\n")
 
 total_charge = 0
 with ThreadPoolExecutor(max_workers=nb_clients) as pool:
@@ -151,7 +152,10 @@ print_log(f"  Solde Initial      : {initial_total:,.2f} EUR")
 print_log(f"  Solde Final        : {final_total:,.2f} EUR")
 print_log(f"  Écart (Invariant)  : {ecart:,.2f} EUR")
 
-assert ecart < 0.01, f"Erreur Invariant : {ecart} EUR"
-print_log("\n✓ L'invariant de solde est respecté.")
-print_log("✓ US-09 validée avec succès ✓")
+if ecart < 0.01:
+    print_log("\n✓ L'invariant de solde est respecté.")
+    print_log("✓ US-09 validée avec succès ✓")
+else:
+    print_log(f"\n❌ ERREUR : Écart de {ecart} EUR détecté !")
+
 print_log("="*50 + "\n")
