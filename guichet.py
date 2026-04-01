@@ -28,18 +28,25 @@ class Guichet (threading.Thread):
         print(f"[{self.name}] Guichet ouvert")
 
         while not self._stop_event.is_set():
-            # si la file est vide, on reboucle 1s jusqu'à l'attente d'un client
-            client = self.file_clients.servir_client(timeout=1.0)
-            if client is None:
-                # Pas de client dans la seconde écoulée → on vérifie _actif
-                continue
+            client = None
+            got_client = False
 
             try:
+                client = self.file_clients.servir_client(timeout=1.0)
+                if client is None:
+                    continue
+
+                got_client = True  # IMPORTANT: on a bien fait un get()
                 self._traiter_client(client)
             except Exception as e:
                 # Isolation des erreurs : le guichet survit à n'importe quelle
                 # exception levée pendant le traitement (US-03, critère 3)
                 print(f"[{self.name}] — client ignoré : {e}")
+
+            finally:
+                # On ne fait task_done() QUE si on a réellement obtenu un client via get()
+                if got_client:
+                    self.file_clients._file.task_done()
 
         print(f"[{self.name}] Fermé — {self._clients_traites} client(s) traité(s)")
 

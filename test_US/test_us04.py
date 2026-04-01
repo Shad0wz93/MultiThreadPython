@@ -2,12 +2,15 @@ import threading
 
 from banque import Banque
 from compte import Compte
+from surveillance import Notification
+
+notif = Notification()
 
 # Création des comptes à débiter et créditer
-compte1 = Compte(1, 100)
-compte2 = Compte(2, 100)
+compte1 = Compte(1, notif, solde_initial=100)
+compte2 = Compte(2, notif, solde_initial=100)
 
-banque = Banque()
+banque = Banque(notif)
 banque.ajouter_compte(compte1)
 banque.ajouter_compte(compte2)
 

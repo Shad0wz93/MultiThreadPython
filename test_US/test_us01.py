@@ -1,9 +1,13 @@
 import threading
 from compte import Compte
+from surveillance import Notification
 
 # si deux threads retirent en même temps avec solde insuffisant, un seul réussit
 print("Deux retraits simultanés sur solde insuffisant")
-compte = Compte(1, solde_initial=100)
+
+notif = Notification()
+compte = Compte(1, notif, solde_initial=100)
+
 resultats = []
 
 def tenter_retrait():
@@ -20,7 +24,9 @@ print(f"  OK — solde final : {compte.get_solde()}")
 
 # dépôt et retrait simultanés produisent toujours un résultat cohérent
 print("Dépôts et retraits simultanés")
-compte2 = Compte(2, solde_initial=50)
+
+compte2 = Compte(2, notif, solde_initial=50)
+
 threads = (
     [threading.Thread(target=compte2.deposer, args=(10,)) for _ in range(10)] +
     [threading.Thread(target=compte2.retirer, args=(10,)) for _ in range(5)]
@@ -31,9 +37,10 @@ for t in threads: t.join()
 assert compte2.get_solde() == 100, f"ECHEC :solde = {compte2.get_solde()}"
 print(f"  OK — solde final : {compte2.get_solde()}")
 
-#le solde ne devient jamais négatif et get_solde() retourne toujours une valeur cohérente
+# le solde ne devient jamais négatif et get_solde() retourne toujours une valeur cohérente
 print("get_solde() ne retourne jamais une valeur négative")
-compte3 = Compte(3, solde_initial=50)
+
+compte3 = Compte(3, notif, solde_initial=50)
 soldes_lus = []
 
 def lire():

@@ -33,13 +33,15 @@ class FileClients:
     def servir_client(self, timeout: float = None) -> Client:
         try:
             client = self._file.get(block=True, timeout=timeout)
-            self._file.task_done()
-            with self._lock:
-                self._clients_servis += 1
-            return client
         except Empty:
             return None
-    
+
+        # Incrémenter le compteur servi après récupération
+        with self._lock:
+            self._clients_servis += 1
+
+        return client
+
     def taille_file(self) -> int:
         return self._file.qsize()
     
