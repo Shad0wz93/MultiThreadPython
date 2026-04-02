@@ -35,3 +35,26 @@ class TableauDeBord(threading.Thread):
 
     def arreter(self):
         self._stop_event.set()
+
+
+class Notification:
+    def __init__(self):
+        self.condition = threading.Condition()
+        self._decouvert = []  # liste des comptes en découvert
+
+    def surveiller(self):
+        """Thread passif qui attend les alertes"""
+        with self.condition:
+            while True:
+                while not self._decouvert:  # attend qu'il y ait quelque chose
+                    self.condition.wait()
+                # traite toutes les alertes en attente
+                while self._decouvert:
+                    numero = self._decouvert.pop(0)
+                    print(f"[ALERTE] Compte n°{numero} : solde insuffisant (opération refusée)")
+
+    def alerter(self, numero_compte: int):
+        """Appelé par la Banque après un retrait ou un virement"""
+        with self.condition:
+            self._decouvert.append(numero_compte)
+            self.condition.notify_all()

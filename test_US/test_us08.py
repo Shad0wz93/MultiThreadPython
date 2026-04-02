@@ -3,6 +3,9 @@ import time
 
 from compte import Compte
 from historique import Historique
+from surveillance import Notification
+
+notif = Notification()
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -15,8 +18,8 @@ historique = Historique()
 # ---------------------------------------------------------------------------
 print("[Test 1] Enregistrement horodaté des opérations")
 
-compte1 = Compte(1, 500)
-compte2 = Compte(2, 300)
+compte1 = Compte(1, notif, solde_initial=500)
+compte2 = Compte(2, notif, solde_initial=300)
 
 # Dépôt
 compte1.deposer(100)
@@ -46,7 +49,7 @@ print("  OK")
 print("\n[Test 2] Lecture pendant des écritures concurrentes")
 
 historique2 = Historique()
-compte3 = Compte(3, 1000)
+compte3 = Compte(3, notif, solde_initial=1000)
 lectures = []
 
 def ecrire():
@@ -78,7 +81,7 @@ print("  OK — lecture non bloquante")
 print("\n[Test 3] Ordre chronologique avec threads concurrents")
 
 historique3 = Historique()
-compte4 = Compte(4, 5000)
+compte4 = Compte(4, notif, solde_initial=5000)
 
 def deposer_en_boucle(n):
     for _ in range(n):
