@@ -11,6 +11,9 @@ class Banque:
         self._comptes[compte.numero] = compte
 
     def virement(self, numero_source: int, numero_destination: int, montant: int) -> bool:
+        if montant <= 0:
+            raise ValueError("Le montant doit être positif.")
+
         source = self._comptes[numero_source]
         destination = self._comptes[numero_destination]
 

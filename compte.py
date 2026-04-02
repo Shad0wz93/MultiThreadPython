@@ -2,11 +2,14 @@ import threading
 from surveillance import Notification
 
 class Compte:
-    def __init__(self, numero, notification: Notification, solde_initial=0):
+    def __init__(self, numero, notification: Notification, solde_initial=0, callback_op=None):
         self.numero = numero
         self._solde = solde_initial
         self._lock = threading.Lock()
         self._notification = notification
+
+        # callback_op(type_op: str, montant: float, succes: bool)
+        self._callback_op = callback_op
 
     def deposer(self, montant):
         if montant <= 0:
@@ -14,16 +17,29 @@ class Compte:
         with self._lock:
             self._solde += montant
 
+        # dépôt réussi si pas d'exception
+        if self._callback_op:
+            self._callback_op("depot", montant, True)
+
     def retirer(self, montant) -> bool:
         if montant <= 0:
             raise ValueError("Le montant doit être positif.")
+
         with self._lock:
             if self._solde >= montant:
                 self._solde -= montant
-                return True
+                succes = True
             else:
-                self._notification.alerter(self.numero)
-                return False
+                succes = False
+
+        # alerte si opération refusée (solde insuffisant)
+        if not succes:
+            self._notification.alerter(self.numero)
+
+        if self._callback_op:
+            self._callback_op("retrait", montant, succes)
+
+        return succes
 
     def get_solde(self) -> float:
         with self._lock:

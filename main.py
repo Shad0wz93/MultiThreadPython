@@ -21,8 +21,30 @@ INTERVALLE_TABLO = 3
 
 notification = Notification()
 
-comptes = {i: Compte(i, notification, solde_initial=SOLDE_INIT)
-           for i in range(N_COMPTES)}
+stats_lock = threading.Lock()
+nb_operations = 0          # dépôts + retraits réussis
+total_depots = 0
+total_retraits_ok = 0
+
+def suivi_operations(type_op: str, montant: float, succes: bool):
+    """Callback appelé par Compte après dépôt/retrait."""
+    global nb_operations, total_depots, total_retraits_ok
+
+    if not succes:
+        return
+
+    with stats_lock:
+        nb_operations += 1
+        if type_op == "depot":
+            total_depots += montant
+        elif type_op == "retrait":
+            total_retraits_ok += montant
+
+# Comptes avec callback pour le stress test (US-09)
+comptes = {
+    i: Compte(i, notification, solde_initial=SOLDE_INIT, callback_op=suivi_operations)
+    for i in range(N_COMPTES)
+}
 
 banque = Banque(notification)
 for c in comptes.values():
@@ -31,14 +53,18 @@ for c in comptes.values():
 file_clients  = FileClients(capacite_max=CAPACITE_FILE)
 dab           = DAB(nb_dab=N_DAB)
 historique    = Historique()
-pool_guichets = PoolGuichets(n_guichets=N_GUICHETS, file_clients=file_clients, banque=banque)
+
+pool_guichets = PoolGuichets(
+    n_guichets=N_GUICHETS,
+    file_clients=file_clients,
+    banque=banque,
+    dab=dab,
+    historique=historique
+)
+
 tableau       = TableauDeBord(file_clients, pool_guichets, comptes, intervalle=INTERVALLE_TABLO)
 
-nb_operations   = 0
-lock_operations = threading.Lock()
-
 def simuler_client(client_id: int):
-    global nb_operations
     nom    = f"Client-{client_id:02d}"
     nb_ops = random.randint(1, 10)
 
@@ -62,8 +88,6 @@ def simuler_client(client_id: int):
         )
 
         file_clients.rejoindre_file(client)
-        with lock_operations:
-            nb_operations += 1
         time.sleep(random.uniform(0.05, 0.2))
 
     return nb_ops
@@ -72,7 +96,7 @@ def lancer_surveillance_decouvert():
     t = threading.Thread(
         target=notification.surveiller,
         daemon=True,
-        name="Surveillance-Découvert"
+        name="Surveillance-Solde-Insuffisant"
     )
     t.start()
     return t
@@ -106,6 +130,9 @@ def main():
             except Exception as e:
                 print(f"  [Erreur] {e}")
 
+    # IMPORTANT: attendre que tous les clients pris par les guichets soient traités
+    file_clients.join()
+
     duree = time.time() - debut
 
     # Arrêt propre
@@ -115,25 +142,32 @@ def main():
 
     # Résultats finaux
     solde_final_total = sum(c.get_solde() for c in comptes.values())
-    debit = nb_operations / duree if duree > 0 else 0
+    with stats_lock:
+        ops = nb_operations
+        solde_attendu = solde_initial_total + total_depots - total_retraits_ok
+
+    debit = ops / duree if duree > 0 else 0
 
     print("\n" + "=" * 50)
     print("   Résultats")
     print("=" * 50)
-    print(f"  Opérations : {nb_operations}")
+    print(f"  Opérations : {ops}")
     print(f"  Durée      : {duree:.2f}s")
     print(f"  Débit      : {debit:.1f} ops/seconde")
-    print(f"  Solde initial : {solde_initial_total}€")
+    print(f"  Solde attendu : {solde_attendu}€")
     print(f"  Solde final   : {solde_final_total}€")
     print("-" * 50)
 
-    if solde_final_total == solde_initial_total:
-        print("  OK — Invariant respecte, aucune race condition")
+    if solde_final_total == solde_attendu:
+        print("  OK — aucune race condition")
     else:
-        diff = solde_final_total - solde_initial_total
+        diff = solde_final_total - solde_attendu
         print(f"  ERREUR — Ecart de {diff}€ detecte (race condition !)")
 
     print("=" * 50 + "\n")
+
+    print("Historique des opérations :")
+    historique.afficher()
 
 if __name__ == "__main__":
     main()

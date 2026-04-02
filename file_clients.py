@@ -42,6 +42,12 @@ class FileClients:
 
         return client
 
+    def task_done(self):
+        self._file.task_done()
+
+    def join(self):
+        self._file.join()
+
     def taille_file(self) -> int:
         return self._file.qsize()
     
