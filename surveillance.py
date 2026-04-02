@@ -56,7 +56,10 @@ class Notification:
                     print(f"[ALERTE] Compte n°{numero} : solde insuffisant (opération refusée)")
 
     def alerter(self, numero_compte: int):
-        """Appelé par la Banque après un retrait ou un virement"""
+        """
+        Appelé par la Banque après un retrait ou un virement
+        :param numero_compte: Le numéro du compte affecté par l'alerte
+        """
         with self.condition:
             self._decouvert.append(numero_compte)
             self.condition.notify_all()
