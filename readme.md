@@ -23,12 +23,12 @@ python main.py
 
 ## Liste des US implémentées
 
-- US-01 : Compte bancaire thread-safe
-- US-02 : File d'attente des clients
-- US-03 : Guichets : pool de threads
-- US-04 : Virement entre comptes sans deadlock
-- US-05 : Tableau de bord temps réel
-- US-06 : Alarme de découvert
-- US-07 : Limite simultanée aux DAB
-- US-08 : Historique concurrent des opérations
-- US-09 : Simulation de charge (stress test)
+- US-01 : Compte bancaire thread-safe - Adam
+- US-02 : File d'attente des clients - Victoria
+- US-03 : Guichets : pool de threads - Fabien
+- US-04 : Virement entre comptes sans deadlock - Bastien
+- US-05 : Tableau de bord temps réel - Adam
+- US-06 : Alarme de découvert - Bastien
+- US-07 : Limite simultanée aux DAB - Victoria
+- US-08 : Historique concurrent des opérations - Fabien
+- US-09 : Simulation de charge (stress test) - Florian / Adam
