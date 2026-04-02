@@ -11,6 +11,8 @@ from dab import DAB
 from historique import Historique
 from surveillance import Notification, TableauDeBord
 
+# Paramètres de simulation
+
 N_CLIENTS        = 50
 N_COMPTES        = 10
 N_GUICHETS       = 5
@@ -27,12 +29,18 @@ total_depots = 0
 total_retraits_ok = 0
 
 def suivi_operations(type_op: str, montant: float, succes: bool):
-    """Callback appelé par Compte après dépôt/retrait."""
+    """Callback appelé par Compte après dépôt/retrait.
+
+    :param type_op: "depot" ou "retrait"
+    :param montant: montant de l'opération
+    :param succes
+    """
     global nb_operations, total_depots, total_retraits_ok
 
     if not succes:
         return
 
+    #plusieurs threads peuvent appeler ce callback en même temps
     with stats_lock:
         nb_operations += 1
         if type_op == "depot":
@@ -40,7 +48,7 @@ def suivi_operations(type_op: str, montant: float, succes: bool):
         elif type_op == "retrait":
             total_retraits_ok += montant
 
-# Comptes avec callback pour le stress test (US-09)
+# Comptes avec callback
 comptes = {
     i: Compte(i, notification, solde_initial=SOLDE_INIT, callback_op=suivi_operations)
     for i in range(N_COMPTES)
@@ -62,23 +70,29 @@ pool_guichets = PoolGuichets(
     historique=historique
 )
 
-tableau       = TableauDeBord(file_clients, pool_guichets, comptes, intervalle=INTERVALLE_TABLO)
+tableau = TableauDeBord(file_clients, pool_guichets, comptes, intervalle=INTERVALLE_TABLO)
 
 def simuler_client(client_id: int):
-    nom    = f"Client-{client_id:02d}"
+    """Simule un client
+    :param client_id: identifiant unique du client simulé
+    :return: nombre d'opérations générées
+    """
+    nom = f"Client-{client_id:02d}"
     nb_ops = random.randint(1, 10)
 
     for _ in range(nb_ops):
         operation = random.choice(["depot", "retrait", "virement"])
-        compte    = random.choice(list(comptes.values()))
-        montant   = random.randint(10, 200)
+        compte = random.choice(list(comptes.values()))
+        montant = random.randint(10, 200)
 
+        # Pour un virement, on choisit un compte destination différent
         destination = None
         if operation == "virement":
             destination = random.choice(list(comptes.values()))
             if destination.numero == compte.numero:
-                continue
+                continue  # on évite virement vers soi-même
 
+        # Requête client = "ce que le guichet devra exécuter"
         client = Client(
             nom=nom,
             operation=operation,
@@ -87,7 +101,10 @@ def simuler_client(client_id: int):
             compte_destination=destination
         )
 
+        # Ajout dans la file : si la file est bornée, l'appel peut bloquer temporairement
         file_clients.rejoindre_file(client)
+
+        # Petite pause pour rendre la charge plus réaliste (arrivées non simultanées)
         time.sleep(random.uniform(0.05, 0.2))
 
     return nb_ops
@@ -111,6 +128,7 @@ def main():
     print(f"  DAB       : {N_DAB}")
     print("=" * 50 + "\n")
 
+    #référence pour le calcul du solde attendu
     solde_initial_total = sum(c.get_solde() for c in comptes.values())
     print(f"  Solde total initial : {solde_initial_total}€\n")
 
@@ -124,13 +142,15 @@ def main():
     debut = time.time()
     with ThreadPoolExecutor(max_workers=N_CLIENTS) as pool:
         futures = [pool.submit(simuler_client, i) for i in range(N_CLIENTS)]
+
+        # Permet de récupérer les exceptions éventuelles des threads clients
         for future in as_completed(futures):
             try:
                 future.result()
             except Exception as e:
                 print(f"  [Erreur] {e}")
 
-    # IMPORTANT: attendre que tous les clients pris par les guichets soient traités
+    # attendre que tous les clients pris par les guichets soient traités
     file_clients.join()
 
     duree = time.time() - debut
