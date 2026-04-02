@@ -16,17 +16,17 @@ class Historique():
 
     def enregistrer(self, type_op: str, numero_compte: str, montant: float, succes: bool = True):
         """
-                Enregistre une opération de façon thread-safe.
-                Critères [1] et [3] : horodatage + verrou garantit l'ordre d'insertion.
-                """
-        operation = {
-            "horodatage": datetime.now(), #dans le verrou
-            "type": type_op,
-            "compte": str(numero_compte),
-            "montant": montant,
-            "succes": succes,
-        }
+            Enregistre une opération de façon thread-safe.
+            Critères [1] et [3] : horodatage + verrou garantit l'ordre d'insertion.
+        """
         with self._lock:
+            operation = {
+                "horodatage": datetime.now(), #dans le verrou
+                "type": type_op,
+                "compte": str(numero_compte),
+                "montant": montant,
+                "succes": succes,
+            }
             self._operations.append(operation)
 
     # ------------------------------------------------------------------
