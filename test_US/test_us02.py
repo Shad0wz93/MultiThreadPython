@@ -116,3 +116,45 @@ t2.join()
 print(f"Tailles observées pendant l'ajout: {tailles_observees}")
 print(f"Taille finale: {file4.taille_file()} clients")
 
+
+# =============================================================================
+# TEST 5 : FIFO avec plusieurs guichets concurrents (stress test)
+# =============================================================================
+print("\n[Test 5] FIFO avec plusieurs guichets concurrents")
+file5 = FileClients(capacite_max=20)
+ordre_service = []
+lock_ordre = threading.Lock()
+
+# Ajouter 15 clients numérotés
+for i in range(15):
+    file5.rejoindre_file(Client(f"C{i:02d}"))
+
+def guichet_concurrent():
+    # 3 guichets piochent en même temps
+    while True:
+        client = file5.servir_client(timeout=0.3)
+        if client is None:
+            break
+        with lock_ordre:
+            ordre_service.append(client.nom)
+        time.sleep(0.05)  # Simule traitement
+
+# Lancer 3 guichets en parallèle
+print("Lancement de 3 guichets qui piochent simultanément...\n")
+guichets = [threading.Thread(target=guichet_concurrent) for _ in range(3)]
+for g in guichets:
+    g.start()
+for g in guichets:
+    g.join()
+
+# Vérification STRICTE
+attendu = [f"C{i:02d}" for i in range(15)]
+print(f"Ordre attendu : {attendu[:5]}...{attendu[-3:]}")
+print(f"Ordre obtenu  : {ordre_service[:5]}...{ordre_service[-3:]}")
+fifo_ok = ordre_service == attendu
+print(f"FIFO respecté avec 3 guichets concurrents : {fifo_ok}")
+
+if not fifo_ok:
+    print(f"ERREUR : FIFO violé !")
+else:
+    print("Preuve que Queue garantit FIFO même sous concurrence")
