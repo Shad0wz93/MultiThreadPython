@@ -11,6 +11,32 @@ class Compte:
         # callback_op(type_op: str, montant: float, succes: bool)
         self._callback_op = callback_op
 
+
+    @property
+    def lock(self):
+        return self._lock
+
+    @property
+    def solde(self):
+        return self._solde
+
+
+    # Méthodes sans lock
+
+    def deposer_sans_lock(self, montant):
+        """À appeler uniquement si le lock est déjà tenu"""
+        self._solde += montant
+
+    def retirer_sans_lock(self, montant) -> bool:
+        """À appeler uniquement si le lock est déjà tenu"""
+        if self._solde < montant:
+            return False
+        self._solde -= montant
+        return True
+
+
+    # Méthodes avec lock intégré
+
     def deposer(self, montant):
         if montant <= 0:
             raise ValueError("Le montant doit être positif.")
