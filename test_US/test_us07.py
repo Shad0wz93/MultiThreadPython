@@ -57,3 +57,35 @@ print("\n[Test 3] Retrait avec solde insuffisant")
 compte_insuffisant = Compte(6, notif, solde_initial=50)
 success = dab.retirer(compte_insuffisant, 100, "Client 6")
 print(f"Retrait refusé correctement : {not success}")
+
+
+# =============================================================================
+# TEST 4 :  Exception pendant utilisation
+# =============================================================================
+print("\n[Test 4] 'with' garantit release même si exception")
+dab_robuste = DAB(nb_dab=1)
+
+def client_crasheur():
+    # Simule un client qui crash DANS le DAB
+    try:
+        with dab_robuste.dab:
+            print("Client crasheur ENTRE dans le DAB")
+            raise Exception("CRASH SIMULÉ !")
+    except Exception as e:
+        print(f"Exception attrapée : {e}")
+
+def client_normal():
+    #Client qui doit pouvoir entrer APRÈS le crash
+    time.sleep(0.3)  # Attend que le crasheur entre et crashe
+    print("Client normal attend un DAB...")
+    with dab_robuste.dab:
+        print("Client normal a pu ENTRER → DAB bien libéré malgré exception")
+
+t1 = threading.Thread(target=client_crasheur)
+t2 = threading.Thread(target=client_normal)
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+
+print("Test validé : 'with' fait release() automatique")
