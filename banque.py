@@ -8,9 +8,20 @@ class Banque:
         self._notification = notification
 
     def ajouter_compte(self, compte: Compte):
+        """
+        Méthode pour ajouter un compte dans la liste compte de la classe
+        :param compte: Le compte à ajouter
+        """
         self._comptes[compte.numero] = compte
 
     def virement(self, numero_source: int, numero_destination: int, montant: int) -> bool:
+        """
+        Méthode pour effectuer un virement entre 2 comptes
+        :param numero_source: Numéro de compte du compte source (débité)
+        :param numero_destination: Numéro de compte du compte destination (crédité)
+        :param montant: Montant à envoyer
+        :return: Si le virement est un succès ou non
+        """
         if montant <= 0:
             raise ValueError("Le montant doit être positif.")
 
