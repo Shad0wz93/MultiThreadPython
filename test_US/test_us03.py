@@ -46,7 +46,6 @@ file = FileClients(capacite_max=N_CLIENTS + 1)  # +1 pour le client cassé
 
 # Pool de guichets — critère [1] : N configurable
 pool = PoolGuichets(n_guichets=N_GUICHETS, file_clients=file)
-pool.demarrer()
 
 # Clients normaux
 for i in range (N_CLIENTS):
@@ -56,16 +55,13 @@ for i in range (N_CLIENTS):
         compte = random.choice(comptes),
         montant = random.randint(10, 200),
     )
-    file.rejoindre_file(c)
+    pool.soumettre(c)
     time.sleep(0.10)
 
 # Client cassé (isolation des erreurs)
-file.rejoindre_file(creer_client("Client-erreur", "depot", None, 100))
+pool.soumettre(creer_client("Client-erreur", "depot", None, 100))
 
-# Attente que tous les clients soient servis
-while not file.file_est_vide():
-    time.sleep(0.10)
-
+# shutdown(wait=True) dans arreter() attend la fin de toutes les tâches
 pool.arreter()
 
 print(f"Solde final par compte :")
