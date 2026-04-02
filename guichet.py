@@ -154,6 +154,10 @@ class PoolGuichets:
         """
         print("\n[Pool] Arrêt demandé — en attente de la fin des guichets…")
 
+        # join() : bloque jusqu'à ce que chaque task_done() ait été appelé
+        if self._file_clients is not None:
+            self._file_clients.join()
+
         self._executor.shutdown(wait=True)
 
         total = sum(g.nb_clients_traites for g in self._guichets)
