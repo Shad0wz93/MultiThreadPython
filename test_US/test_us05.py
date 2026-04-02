@@ -19,7 +19,6 @@ pool_guichets = PoolGuichets(n_guichets=2, file_clients=file_clients)
 # Créer tableau de bord
 tableau = TableauDeBord(file_clients, pool_guichets, comptes, intervalle=1)
 
-pool_guichets.demarrer()
 tableau.start()
 
 print("Test US-05 : Tableau de bord\n")
@@ -31,7 +30,7 @@ for i in range(5):
     else:
         client = Client(f"Client-{i}", "retrait", compte=comptes[2], montant=50)
 
-    file_clients.rejoindre_file(client)
+    pool_guichets.soumettre(client)
     time.sleep(0.5)
 
 time.sleep(4)

@@ -101,8 +101,8 @@ def simuler_client(client_id: int):
             compte_destination=destination
         )
 
-        # Ajout dans la file : si la file est bornée, l'appel peut bloquer temporairement
-        file_clients.rejoindre_file(client)
+        # Le pool reçoit les clients directements
+        pool_guichets.soumettre(client)
 
         # Petite pause pour rendre la charge plus réaliste (arrivées non simultanées)
         time.sleep(random.uniform(0.05, 0.2))
@@ -134,7 +134,6 @@ def main():
 
     # Démarrage des composants
     lancer_surveillance_decouvert()
-    pool_guichets.demarrer()
     tableau.start()
 
     # Simulation
@@ -149,9 +148,6 @@ def main():
                 future.result()
             except Exception as e:
                 print(f"  [Erreur] {e}")
-
-    # attendre que tous les clients pris par les guichets soient traités
-    file_clients.join()
 
     duree = time.time() - debut
 
